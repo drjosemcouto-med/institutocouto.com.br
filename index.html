@@ -1042,10 +1042,18 @@ addEventListener('scroll',()=>{document.getElementById('nav').style.background=s
 <!-- Meta Pixel Event Tracking -->
 <script>
 (function(){
+  function genEventId(){
+    return 'evt-' + Date.now() + '-' + Math.random().toString(36).slice(2,10);
+  }
+  if(typeof fbq === 'function'){
+    fbq('track', 'ViewContent', {content_name: document.title}, {eventID: genEventId()});
+  }
   document.addEventListener('click', function(e){
     var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"], a[href*="whatsapp"]') : null;
     if(a && typeof fbq === 'function'){
-      fbq('track', 'Lead', {content_name: 'WhatsApp CTA'});
+      var id = genEventId();
+      fbq('track', 'Lead', {content_name: 'WhatsApp CTA'}, {eventID: id});
+      fbq('track', 'Contact', {content_name: 'WhatsApp CTA'}, {eventID: id});
     }
   }, true);
 })();
