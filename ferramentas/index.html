@@ -72,6 +72,10 @@ td button{font:700 14px system-ui;border-radius:8px;padding:8px 12px;margin:2px 
   <p class="sub">Pré-reservas aguardando a conferência humana. Confirme só depois de ver o Pix na conta do Instituto: a paciente recebe a confirmação na hora.</p>
   <button class="b sec" id="e-btn">Atualizar lista</button>
   <div id="e-out"></div>
+  <details style="margin-top:18px"><summary style="cursor:pointer;font-weight:700;color:#5E4813">Chave da equipe (só com a chave de administração)</summary>
+   <p class="ajuda">A chave da equipe só confere e cancela reservas. Entregue-a à pessoa que faz a conferência; se vazar, gere uma nova.</p>
+   <button class="b sec" id="k-ver">Mostrar chave da equipe</button><button class="b er" id="k-nova">Gerar nova chave</button>
+   <div class="out link" id="k-out"></div></details>
  </section>
 
  <section id="testes">
@@ -131,6 +135,9 @@ function listar(){ var o=$('e-out'); if(!chave){ o.innerHTML='<p class="ajuda">D
    b.disabled=true; api('equipe',{chave_equipe:chave,op:b.dataset.op,reserva:b.dataset.id}).then(function(r){ if(!r.ok) alertar(r); listar(); }); }; }); }); }
 function alertar(r){ $('e-out').insertAdjacentHTML('afterbegin','<p><span class="selo n">Erro</span> '+esc({termo:'Falta o termo aceito.',status:'Essa reserva já mudou de situação.',acesso:'Sem acesso.'}[r.erro]||r.erro)+'</p>'); }
 $('e-btn').onclick=listar;
+function chaveEq(nova){ adm({equipe_chave:nova?'nova':true}).then(function(r){ $('k-out').textContent=r.ok?r.chave_equipe:'Só a chave de administração mostra a chave da equipe.'; }); }
+$('k-ver').onclick=function(){ chaveEq(false); };
+$('k-nova').onclick=function(){ var b=this; if(!b.dataset.c){ b.dataset.c=1; b.textContent='A chave antiga para de funcionar. Toque de novo'; return; } b.dataset.c=''; b.textContent='Gerar nova chave'; chaveEq(true); };
 // ---------- testes ao vivo
 $('t-btn').onclick=function(){ var b=this, v=ocupado(b,'Rodando…'), out=$('t-out'); out.innerHTML=''; var completo=$('t-completo').checked;
  var T=Date.now().toString(36).slice(-5), base='drjosemcouto+teste'+T, em=function(i){ return base+(i==null?'':'x'+i)+'@gmail.com'; };
