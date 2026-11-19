@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Ferramentas internas · Instituto Couto</title>
+<link rel="icon" type="image/png" href="../endolaser/img/favicon.png">
+<style>
+:root{--bg:#0E0D0C;--gold:#C9A24B;--gold2:#E2C27A;--paper:#FAF7F0;--line:#E6DDC8;--ink:#1B1A18;--ok:#1E6B4A;--er:#9B2C1F}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--bg);color:#fff;padding:14px 20px;border-bottom:2px solid var(--gold);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+header b{font:600 19px Georgia,serif;letter-spacing:.2em}header small{color:var(--gold);font:600 12px system-ui;letter-spacing:.2em;text-transform:uppercase}
+main{max-width:1000px;margin:0 auto;padding:20px 16px 60px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+nav button{font:700 16px system-ui;border:1.5px solid var(--bg);background:#fff;color:var(--bg);border-radius:99px;padding:10px 18px;cursor:pointer;min-height:46px}
+nav button[aria-selected=true]{background:var(--bg);color:#fff}
+section{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}section.on{display:block}
+h2{font:600 26px Georgia,serif;margin:0 0 4px}.sub{color:#6B665B;margin:0 0 14px;font-size:15.5px}
+label{display:block;font:700 14px system-ui;color:#5E4813;margin:10px 0 4px}
+input,select{width:100%;font:17px system-ui;padding:12px;border:1.5px solid #CBBF9F;border-radius:10px;min-height:48px;background:#fff}
+.linha{display:grid;grid-template-columns:2fr 2fr 1fr;gap:10px}@media(max-width:700px){.linha{grid-template-columns:1fr}}
+button.b{font:800 16px system-ui;border:0;border-radius:10px;padding:12px 18px;min-height:48px;cursor:pointer;background:var(--bg);color:#fff;margin:12px 8px 0 0}
+button.b.sec{background:#fff;color:var(--bg);border:1.5px solid var(--bg)}button.b.ok{background:var(--ok)}button.b.er{background:var(--er)}
+button[disabled]{opacity:.55;cursor:wait}
+.out{margin-top:14px;border:1px dashed #B9B09A;border-radius:12px;padding:12px 14px;background:var(--paper);overflow-wrap:anywhere;font-size:15.5px}.out:empty{display:none}
+.link{font:15px ui-monospace,Menlo,monospace}
+.selo{display:inline-block;font:800 13px system-ui;border-radius:99px;padding:4px 10px;color:#fff;background:var(--ok)}.selo.n{background:var(--er)}.selo.p{background:#7A5F1E}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:10px}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{font:700 13px system-ui;color:#5E4813;text-transform:uppercase;letter-spacing:.06em}
+td button{font:700 14px system-ui;border-radius:8px;padding:8px 12px;margin:2px 4px 2px 0;border:0;cursor:pointer;min-height:40px}
+.passo{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid #F0EADB;font-size:15.5px}.passo i{flex:none;width:24px;text-align:center;font-style:normal;font-weight:800}
+.passo.ok i{color:var(--ok)}.passo.er i{color:var(--er)}.passo small{color:#6B665B}
+.chave{display:flex;gap:8px;align-items:center}.chave input{max-width:360px;min-height:42px;padding:8px 10px;font-size:15px}
+.ajuda{font-size:14.5px;color:#6B665B;margin-top:10px}
+</style>
+</head>
+<body>
+<header><div><b>INSTITUTO COUTO</b> <small>Ferramentas internas</small></div>
+ <div class="chave"><input id="chave" type="password" placeholder="Chave de acesso" autocomplete="off" aria-label="Chave de acesso"><button class="b sec" id="salvar" style="margin:0">Entrar</button></div></header>
+<main>
+ <nav role="tablist">
+  <button role="tab" data-t="gerar" aria-selected="true">Gerar link</button>
+  <button role="tab" data-t="validar" aria-selected="false">Validar link</button>
+  <button role="tab" data-t="equipe" aria-selected="false">Equipe · Pix</button>
+  <button role="tab" data-t="testes" aria-selected="false">Testes</button>
+ </nav>
+
+ <section id="gerar" class="on">
+  <h2>Gerar link mascarado</h2>
+  <p class="sub">O endereço real do Drive ou do YouTube nunca aparece. O link abre só pelo site do Instituto, com assinatura e validade.</p>
+  <div class="linha">
+   <div><label for="g-mat">Material</label><select id="g-mat"><option value="">Entre com a chave para carregar</option></select></div>
+   <div><label for="g-pes">Pessoa (e-mail confirmado) ou vazio para link livre</label><input id="g-pes" type="email" placeholder="nome@exemplo.com" autocapitalize="none"></div>
+   <div><label for="g-dias">Validade (dias)</label><input id="g-dias" type="number" min="1" max="3650" value="30"></div>
+  </div>
+  <button class="b" id="g-btn">Gerar link</button>
+  <div class="out" id="g-out"></div>
+  <p class="ajuda">Link pessoal: só abre para quem confirmou o e-mail; aulas só depois de liberadas. Link livre: abre para quem receber, até vencer.</p>
+ </section>
+
+ <section id="validar">
+  <h2>Validar link</h2>
+  <p class="sub">Cole um link do Instituto para ver se é verdadeiro, de quem é, até quando vale e quantas vezes foi aberto.</p>
+  <label for="v-link">Link</label><input id="v-link" placeholder="https://…/m/?k=…" autocapitalize="none">
+  <button class="b" id="v-btn">Validar</button>
+  <div class="out" id="v-out"></div>
+ </section>
+
+ <section id="equipe">
+  <h2>Conferência do Pix</h2>
+  <p class="sub">Pré-reservas aguardando a conferência humana. Confirme só depois de ver o Pix na conta do Instituto: a paciente recebe a confirmação na hora.</p>
+  <button class="b sec" id="e-btn">Atualizar lista</button>
+  <div id="e-out"></div>
+ </section>
+
+ <section id="testes">
+  <h2>Bateria de testes ao vivo</h2>
+  <p class="sub">Roda a jornada real no backend com e-mails de teste do Dr. Couto (drjosemcouto+teste…@gmail.com) e apaga tudo no fim. Nada vai para pacientes.</p>
+  <label><input type="checkbox" id="t-completo" style="width:auto;min-height:0"> Jornada completa (5 indicações e liberação das aulas)</label>
+  <button class="b" id="t-btn">Rodar testes</button>
+  <div id="t-out"></div>
+ </section>
+</main>
+<script>
+(function(){
+var API='https://script.google.com/macros/s/AKfycbwfFJ0vZVePmE1cARs5hNcp6YIkyXnchexB969grn5yZTjbW5vDS1GOltJLZu-LuiJalQ/exec';
+var $=function(i){return document.getElementById(i);}, chave='';
+try{ chave=sessionStorage.getItem('ic_chave')||''; }catch(e){}
+$('chave').value=chave;
+function api(acao,d){ return fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({acao:acao},d||{}))}).then(function(r){return r.json();}).catch(function(){return {ok:false,erro:'rede'};}); }
+function adm(d){ return api('admin',Object.assign({chave:chave},d)); }
+function esc(t){ return String(t==null?'':t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+function ocupado(b,t){ var o=b.textContent; b.disabled=true; b.textContent=t; return function(){ b.disabled=false; b.textContent=o; }; }
+var MOT={ok:'válido',assinatura:'assinatura inválida (link falso ou adulterado)',expirado:'vencido',revogado:'desativado',pessoa:'pessoa não encontrada ou sem e-mail confirmado',bloqueado:'aula ainda não liberada para esta pessoa',em_gravacao:'aula em gravação (sem vídeo)',material:'material não existe mais'};
+document.querySelectorAll('nav button').forEach(function(b){ b.onclick=function(){ document.querySelectorAll('nav button').forEach(function(x){x.setAttribute('aria-selected',x===b);});
+ document.querySelectorAll('section').forEach(function(s){s.classList.toggle('on',s.id===b.dataset.t);}); if(b.dataset.t==='equipe') listar(); }; });
+function carregar(){ if(!chave) return; adm({}).then(function(r){ var s=$('g-mat'); if(!r.ok){ s.innerHTML='<option value="">Chave sem acesso de administrador</option>'; return; }
+ s.innerHTML=r.catalogo.map(function(m){ return '<option value="'+esc(m.id)+'">'+esc(m.titulo)+(m.gravada===false?' (em gravação)':'')+'</option>'; }).join('')+'<option value="aula-agendamento">Aula de agendamento (Endolaser)</option>'; }); }
+$('salvar').onclick=function(){ chave=$('chave').value.trim(); try{ sessionStorage.setItem('ic_chave',chave); }catch(e){} carregar(); if($('equipe').classList.contains('on')) listar(); };
+carregar();
+// ---------- gerar
+$('g-btn').onclick=function(){ var b=this, v=ocupado(b,'Gerando…');
+ adm({link_criar:true,material:$('g-mat').value,pessoa:$('g-pes').value.trim()||'*',dias:+$('g-dias').value||30}).then(function(r){ v(); var o=$('g-out');
+  if(!r.ok){ o.innerHTML='<span class="selo n">Erro</span> '+esc({pessoa:'Esse e-mail não tem cadastro confirmado.',material:'Escolha um material.',acesso:'Chave sem acesso.'}[r.erro]||r.erro); return; }
+  o.innerHTML='<div class="link" id="g-link">'+esc(r.link)+'</div><span class="selo'+(r.diagnostico.valido?'':' p')+'">'+esc(MOT[r.diagnostico.motivo]||r.diagnostico.motivo)+'</span> '+
+   '<button class="b" id="g-copia">Copiar</button><button class="b sec" onclick="window.open(\''+r.link.replace(/'/g,'')+'\',\'_blank\',\'noopener\')">Abrir</button>';
+  $('g-copia').onclick=function(){ navigator.clipboard.writeText(r.link).then(function(){ $('g-copia').textContent='Copiado'; }); }; }); };
+// ---------- validar
+function validar(revogar){ var l=$('v-link').value.trim(); if(!l) return; var b=$('v-btn'), v=ocupado(b,'Validando…');
+ adm(revogar?{link_revogar:l}:{link_status:l}).then(function(r){ v(); var o=$('v-out');
+  if(!r.ok){ o.innerHTML='<span class="selo n">Erro</span> '+esc(r.erro==='acesso'?'Chave sem acesso.':r.erro); return; }
+  if(r.motivo==='assinatura'){ o.innerHTML='<span class="selo n">Falso</span> Este link não foi gerado pelo Instituto ou foi alterado.'; return; }
+  o.innerHTML='<span class="selo'+(r.valido?'':' n')+'">'+(r.valido?'Verdadeiro e válido':'Verdadeiro, mas '+esc(MOT[r.motivo]||r.motivo))+'</span>'+
+   '<p><b>Material:</b> '+esc(r.material)+'<br><b>De:</b> '+esc(r.pessoa)+'<br><b>Vale até:</b> '+esc(r.expira)+'<br><b>Aberturas:</b> '+r.acessos+'</p>'+
+   (r.ultimos.length?'<p><b>Últimas:</b><br>'+r.ultimos.map(esc).join('<br>')+'</p>':'')+
+   (r.motivo!=='revogado'?'<button class="b er" id="v-rev">Desativar este link</button>':'');
+  var rv=$('v-rev'); if(rv) rv.onclick=function(){ if(rv.dataset.c){ validar(true); } else { rv.dataset.c=1; rv.textContent='Confirmar desativação'; } }; }); }
+$('v-btn').onclick=function(){ validar(false); };
+// ---------- equipe
+function listar(){ var o=$('e-out'); if(!chave){ o.innerHTML='<p class="ajuda">Digite a chave da equipe no topo e toque em Entrar.</p>'; return; } o.innerHTML='<p class="ajuda">Carregando…</p>';
+ api('equipe',{chave_equipe:chave,op:'pendentes'}).then(function(r){
+  if(!r.ok){ o.innerHTML='<p><span class="selo n">Sem acesso</span> Confira a chave da equipe.</p>'; return; }
+  if(!r.reservas.length){ o.innerHTML='<p class="ajuda">Nenhuma pré-reserva aguardando agora.</p>'; return; }
+  o.innerHTML='<table><thead><tr><th>Horário</th><th>Pessoa</th><th>Termo</th><th>Pix</th><th></th></tr></thead><tbody>'+r.reservas.map(function(x){
+   var pend=x.status==='pre_reserva';
+   return '<tr><td><b>'+esc(x.horario)+'</b><br><small>'+esc(x.regiao||'')+'</small></td><td>'+esc(x.nome)+'<br><small><a href="https://wa.me/'+esc(x.whatsapp)+'" target="_blank" rel="noopener">WhatsApp</a> · '+esc(x.email)+'</small></td>'+
+    '<td>'+(x.termo==='aceito'?'<span class="selo">aceito</span>':'<span class="selo p">pendente</span>')+'</td><td>'+(x.status==='confirmada'?'<span class="selo">confirmado</span>':'<span class="selo p">conferir R$ '+r.valor+'</span>')+'</td>'+
+    '<td>'+(pend?'<button style="background:#1E6B4A;color:#fff" data-op="confirmar" data-id="'+esc(x.id)+'"'+(x.termo==='aceito'?'':' disabled title="Falta o termo"')+'>Pix conferido</button><button style="background:#fff;border:1.5px solid #9B2C1F;color:#9B2C1F" data-op="cancelar" data-id="'+esc(x.id)+'">Cancelar</button>':'')+'</td></tr>'; }).join('')+'</tbody></table>';
+  o.querySelectorAll('button[data-op]').forEach(function(b){ b.onclick=function(){ if(!b.dataset.c){ b.dataset.c=1; b.textContent=b.dataset.op==='confirmar'?'Confirmar? Toque de novo':'Cancelar? Toque de novo'; return; }
+   b.disabled=true; api('equipe',{chave_equipe:chave,op:b.dataset.op,reserva:b.dataset.id}).then(function(r){ if(!r.ok) alertar(r); listar(); }); }; }); }); }
+function alertar(r){ $('e-out').insertAdjacentHTML('afterbegin','<p><span class="selo n">Erro</span> '+esc({termo:'Falta o termo aceito.',status:'Essa reserva já mudou de situação.',acesso:'Sem acesso.'}[r.erro]||r.erro)+'</p>'); }
+$('e-btn').onclick=listar;
+// ---------- testes ao vivo
+$('t-btn').onclick=function(){ var b=this, v=ocupado(b,'Rodando…'), out=$('t-out'); out.innerHTML=''; var completo=$('t-completo').checked;
+ var T=Date.now().toString(36).slice(-5), base='drjosemcouto+teste'+T, em=function(i){ return base+(i==null?'':'x'+i)+'@gmail.com'; };
+ var r0=10+Math.floor(Math.random()*80), num=function(i){ return '129900000'+String(r0+i).padStart(2,'0'); }, t0=Date.now(), falhas=0;
+ function passo(nome,ok,det){ if(!ok) falhas++; out.insertAdjacentHTML('beforeend','<div class="passo '+(ok?'ok':'er')+'"><i>'+(ok?'✓':'✗')+'</i><div>'+esc(nome)+(det?'<br><small>'+esc(det)+'</small>':'')+'</div></div>'); return ok; }
+ async function codigo(e){ for(var i=0;i<6;i++){ var c=await adm({ultimo_codigo:e}); if(c.codigo) return c.codigo; await new Promise(function(r){setTimeout(r,1500);}); } return ''; }
+ (async function(){
+  try{
+   var st=await adm({}); if(!passo('Backend no ar e chave aceita',st.ok,st.ok?'versão '+st.versao+' · '+st.catalogo.length+' materiais e aulas':st.erro)) return;
+   var ini=await api('iniciar',{nome:'Teste Landing Automático',whatsapp:num(0),email:em(),consent:true,tipo:'agendamento',origem:{utm_source:'teste'}});
+   passo('Cadastro e envio do código',ini.ok,ini.email_mascara||ini.erro); if(!ini.ok) return;
+   var c=await codigo(em()); var va=await api('validar',{sessao:ini.sessao,codigo:c});
+   passo('Código confirmado e materiais liberados',va.validado===true,(va.materiais||[]).length+' materiais');
+   var semDrive=(va.materiais||[]).every(function(m){ return /\/m\/\?k=/.test(m.url) && !/drive\.google/.test(m.url); });
+   passo('Links dos materiais mascarados (sem Drive)',semDrive&&(va.materiais||[]).length>0);
+   if(va.materiais&&va.materiais[0]){ var ab=await api('link_abrir',{k:va.materiais[0].url.split('k=')[1]});
+    passo('Link do material abre o PDF',ab.ok&&ab.tipo==='pdf'&&(ab.dados||'').length>1000,ab.ok?Math.round(ab.dados.length*0.75/1024)+' KB':ab.erro);
+    var ls=await adm({link_status:va.materiais[0].url}); passo('Validador reconhece o link verdadeiro',ls.valido===true,ls.material);
+    var falso=va.materiais[0].url.slice(0,-3)+'xyz', lf=await adm({link_status:falso}); passo('Validador recusa link adulterado',lf.valido===false&&lf.motivo==='assinatura'); }
+   var n=completo?5:1;
+   for(var i=1;i<=n;i++){
+    var ind=await api('indicar',{sessao:ini.sessao,nome:'Amiga Teste '+'ABCDE'[i-1]+'lves',whatsapp:num(i),email:em(i)});
+    if(!passo('Indicação '+i+' registrada e convite enviado',ind.ok&&ind.status==='enviado',ind.erro||'')) continue;
+    var tk=ind.link.split('?')[1], cv=await api('convite',{token:tk}), ac=await api('aceitar',{token:tk,consent:true});
+    var c2=await codigo(em(i)), v2=await api('validar',{sessao:ac.sessao,codigo:c2});
+    passo('Indicada '+i+' abriu o convite e confirmou o e-mail',cv.ok&&ac.ok&&v2.validado===true);
+   }
+   var s2=await api('status',{sessao:ini.sessao}); passo('Contagem de indicações confirmadas',s2.validas===n,s2.validas+' de '+s2.meta);
+   if(completo) passo('5 confirmadas liberam as aulas',s2.aulas_liberadas===true);
+   var h=await api('horarios'); if(!passo('Agenda devolve horários reais',h.ok&&h.slots&&h.slots.length>0,h.slots&&h.slots.map(function(x){return x.rotulo;}).join(' · '))) return;
+   var pf=await api('perfil',{sessao:ini.sessao,nome:'Teste Landing Automático',nascimento:'1990-05-20',cidade:'São José dos Campos',como_conheceu:'Teste'}); passo('Perfil para agendamento',pf.ok!==false);
+   var rs=await api('reservar',{sessao:ini.sessao,slot_inicio:h.slots[0].chave,slot_rotulo:h.slots[0].rotulo,regiao:'abdome',objetivo:'teste',dor:'teste automático'});
+   if(!passo('Pré-reserva criada na agenda',rs.ok&&rs.slot_ok,h.slots[0].rotulo)) return;
+   var tm=await api('termo',{sessao:ini.sessao,reserva:rs.reserva,cpf:'52998224725',aceite:true}); passo('Termo aceito com CPF, PDF gerado',tm.termo_ok===true);
+   var eq=await api('equipe',{chave_equipe:chave,op:'pendentes'}); passo('Equipe vê a pré-reserva para conferir o Pix',eq.ok&&eq.reservas.some(function(x){return x.id===rs.reserva;}));
+   var cf=await api('equipe',{chave_equipe:chave,op:'confirmar',reserva:rs.reserva}); passo('Pix conferido pela equipe confirma o horário',cf.status==='confirmada');
+  } catch(e){ passo('Erro inesperado',false,String(e)); }
+  finally{ var lp=await adm({limpar_teste:true}); passo('Limpeza dos dados de teste (planilha, agenda, termos)',lp.ok,lp.apagados?JSON.stringify(lp.apagados):lp.erro);
+   out.insertAdjacentHTML('afterbegin','<p><span class="selo'+(falhas?' n':'')+'">'+(falhas?falhas+' falha(s)':'Tudo certo')+'</span> em '+Math.round((Date.now()-t0)/1000)+' s</p>'); v(); }
+ })(); };
+})();
+</script>
+</body>
+</html>

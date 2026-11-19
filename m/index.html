@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Material do Dr. José M Couto · Instituto Couto</title>
+<link rel="icon" type="image/png" href="../endolaser/img/favicon.png">
+<style>
+:root{--bg:#0E0D0C;--gold:#C9A24B;--gold2:#E2C27A;--paper:#FAF7F0;--line:#E6DDC8;--ink:#1B1A18}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--bg);color:#fff;padding:14px 20px;border-bottom:2px solid var(--gold)}
+header b{display:block;font:600 20px/1.1 Georgia,serif;letter-spacing:.22em}header small{color:var(--gold);font:600 11px system-ui;letter-spacing:.3em;text-transform:uppercase}
+main{flex:1;width:100%;max-width:980px;margin:0 auto;padding:22px 18px 40px}
+h1{font:600 clamp(26px,4vw,36px)/1.15 Georgia,serif;margin:0 0 6px}
+.sub{color:#6B665B;font-size:15.5px;margin:0 0 18px}
+.acoes{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 22px;border-radius:12px;font:800 17px system-ui;text-decoration:none;border:0;cursor:pointer}
+.pri{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#17130A}.sec{background:#fff;color:var(--bg);border:1.5px solid var(--bg)}
+.wa{background:#1E6B4A;color:#fff}
+.quadro{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+iframe{display:block;width:100%;border:0;background:#fff}
+.pdf iframe{height:min(78vh,1100px)}.video{position:relative;padding-top:56.25%}.video iframe{position:absolute;inset:0;height:100%}
+.msg{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.carregando{display:flex;align-items:center;gap:12px;color:#6B665B}.carregando i{width:22px;height:22px;border:3px solid #E6DDC8;border-top-color:var(--gold);border-radius:50%;animation:g 1s linear infinite}
+@keyframes g{to{transform:rotate(360deg)}}
+footer{color:#6B665B;font-size:13.5px;text-align:center;padding:18px}
+@media(max-width:600px){.pdf iframe{height:70vh}.btn{flex:1}}
+</style>
+</head>
+<body>
+<header><b>INSTITUTO COUTO</b><small>de Medicina Avançada</small></header>
+<main id="app"><div class="msg carregando"><i></i>Abrindo o seu material…</div></main>
+<footer>Material pessoal do Dr. José M Couto · CRM-SP 209089 · não compartilhe este link</footer>
+<script>
+(function(){
+var API='https://script.google.com/macros/s/AKfycbwfFJ0vZVePmE1cARs5hNcp6YIkyXnchexB969grn5yZTjbW5vDS1GOltJLZu-LuiJalQ/exec';
+var WA='https://wa.me/5512991843887', app=document.getElementById('app');
+var k=(location.search.match(/[?&]k=([\w.-]+)/)||[])[1]||'';
+try{ if(k) sessionStorage.setItem('mk',k); else k=sessionStorage.getItem('mk')||''; history.replaceState(null,'',location.pathname); }catch(e){}   // tira o token da barra de endereço (recarregar continua funcionando)
+var MOTIVO={assinatura:'Este link não é válido. Confira se ele foi copiado inteiro.',expirado:'Este link venceu. Peça um novo à equipe ou abra a página do Dr. Couto para receber outra vez.',
+ revogado:'Este link foi desativado pela equipe.',pessoa:'Este link é pessoal e precisa do e-mail confirmado. Abra a página do Dr. Couto e confirme o seu e-mail.',
+ bloqueado:'Esta aula é liberada quando 5 pessoas indicadas por você confirmam o e-mail. Acompanhe a sua contagem na página.',em_gravacao:'Esta aula está em gravação. O link chega no seu e-mail assim que for publicada.',
+ material:'Este material não está mais disponível.',limite:'Muitas aberturas em pouco tempo. Tente de novo em alguns minutos.',rede:'Não consegui conectar agora. Verifique a internet e tente de novo.'};
+function h(t,a,f){var e=document.createElement(t);for(var x in a||{}){if(x==='text')e.textContent=a[x];else e.setAttribute(x,a[x]);}(f||[]).forEach(function(c){if(c)e.appendChild(c)});return e;}
+function erro(m,titulo){app.innerHTML='';app.appendChild(h('div',{class:'msg'},[h('h1',{text:titulo||'Não foi possível abrir'}),h('p',{text:MOTIVO[m]||MOTIVO.rede}),
+ h('div',{class:'acoes'},[h('a',{class:'btn pri',href:'../endolaser/#biblioteca',text:'Ir para a página do Dr. Couto'}),h('a',{class:'btn wa',href:WA,target:'_blank',rel:'noopener',text:'Falar com a equipe'})])]));}
+if(!k) return erro('assinatura');
+fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({acao:'link_abrir',k:k})}).then(function(r){return r.json();}).then(function(r){
+ if(!r.ok) return erro(r.erro, r.titulo||'');
+ document.title=r.titulo+' · Instituto Couto'; app.innerHTML='';
+ app.appendChild(h('h1',{text:r.titulo}));
+ if(r.tipo==='pdf'){
+  var bin=atob(r.dados), u8=new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) u8[i]=bin.charCodeAt(i);
+  var url=URL.createObjectURL(new Blob([u8],{type:'application/pdf'}));
+  app.appendChild(h('p',{class:'sub',text:'PDF do Dr. José M Couto. Você pode ler aqui, abrir em tela cheia ou baixar.'}));
+  app.appendChild(h('div',{class:'acoes'},[h('a',{class:'btn pri',href:url,target:'_blank',rel:'noopener',text:'Abrir em tela cheia'}),h('a',{class:'btn sec',href:url,download:r.nome||'material.pdf',text:'Baixar PDF'})]));
+  app.appendChild(h('div',{class:'quadro pdf'},[h('iframe',{src:url,title:r.titulo})]));
+ } else if(r.tipo==='video'){
+  app.appendChild(h('p',{class:'sub',text:'Aula do Dr. José M Couto.'}));
+  app.appendChild(h('div',{class:'quadro video'},[h('iframe',{src:r.embed,title:r.titulo,allow:'encrypted-media; picture-in-picture; fullscreen',allowfullscreen:'',referrerpolicy:'strict-origin-when-cross-origin'})]));
+ } else { location.replace(r.url); }
+ app.appendChild(h('p',{class:'sub',style:'margin-top:16px'},[document.createTextNode('Dúvidas? '),h('a',{href:WA,target:'_blank',rel:'noopener',text:'Fale com a equipe no WhatsApp'})]));
+}).catch(function(){erro('rede');});
+})();
+</script>
+</body>
+</html>
