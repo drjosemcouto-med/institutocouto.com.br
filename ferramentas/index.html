@@ -22,7 +22,7 @@ label{display:block;font:700 14px system-ui;color:#5E4813;margin:10px 0 4px}
 input,select{width:100%;font:17px system-ui;padding:12px;border:1.5px solid #CBBF9F;border-radius:10px;min-height:48px;background:#fff}
 .linha{display:grid;grid-template-columns:2fr 2fr 1fr;gap:10px}@media(max-width:700px){.linha{grid-template-columns:1fr}}
 button.b{font:800 16px system-ui;border:0;border-radius:10px;padding:12px 18px;min-height:48px;cursor:pointer;background:var(--bg);color:#fff;margin:12px 8px 0 0}
-button.b.sec{background:#fff;color:var(--bg);border:1.5px solid var(--bg)}button.b.ok{background:var(--ok)}button.b.er{background:var(--er)}
+button.b.sec{background:#fff;color:var(--bg);border:1.5px solid var(--bg)}button.b.ok{background:var(--ok)}button.b.er{background:var(--er)}p.okk{color:var(--ok);font-weight:700}p.er{color:var(--er);font-weight:700}
 button[disabled]{opacity:.55;cursor:wait}
 .out{margin-top:14px;border:1px dashed #B9B09A;border-radius:12px;padding:12px 14px;background:var(--paper);overflow-wrap:anywhere;font-size:15.5px}.out:empty{display:none}
 .link{font:15px ui-monospace,Menlo,monospace}
@@ -44,6 +44,7 @@ td button{font:700 14px system-ui;border-radius:8px;padding:8px 12px;margin:2px 
   <button role="tab" data-t="validar" aria-selected="false">Validar link</button>
   <button role="tab" data-t="equipe" aria-selected="false">Equipe · Pix</button>
   <button role="tab" data-t="testes" aria-selected="false">Testes</button>
+  <button role="tab" data-t="sistema" aria-selected="false">Sistema</button>
  </nav>
 
  <section id="gerar" class="on">
@@ -85,6 +86,16 @@ td button{font:700 14px system-ui;border-radius:8px;padding:8px 12px;margin:2px 
   <button class="b" id="t-btn">Rodar testes</button>
   <div id="t-out"></div>
  </section>
+
+ <section id="sistema">
+  <h2>Versão do sistema</h2>
+  <p class="sub">A versão 1.4.0 organiza a cadência dos e-mails: e-mail de teste não sai mais, os avisos da equipe chegam em um único resumo às 8h, 12h e 17h, nenhum e-mail se repete em 24 horas, cada pessoa recebe no máximo 3 e-mails não pedidos por dia e convite a indicado só sai entre 8h e 20h. Código, reserva e confirmação continuam saindo na hora.</p>
+  <p id="s-atual" class="sub">Entre com a chave de administração no topo para ver a versão em uso.</p>
+  <button class="b" id="s-aplicar">Aplicar a versão 1.4.0</button>
+  <button class="b sec" id="s-voltar">Voltar para a 1.3.1</button>
+  <button class="b sec" id="s-resumo">Enviar o resumo da equipe agora</button>
+  <div id="s-out"></div>
+ </section>
 </main>
 <script>
 (function(){
@@ -101,8 +112,20 @@ document.querySelectorAll('nav button').forEach(function(b){ b.onclick=function(
  document.querySelectorAll('section').forEach(function(s){s.classList.toggle('on',s.id===b.dataset.t);}); if(b.dataset.t==='equipe') listar(); }; });
 function carregar(){ if(!chave) return; adm({}).then(function(r){ var s=$('g-mat'); if(!r.ok){ s.innerHTML='<option value="">Chave sem acesso de administrador</option>'; return; }
  s.innerHTML=r.catalogo.map(function(m){ return '<option value="'+esc(m.id)+'">'+esc(m.titulo)+(m.gravada===false?' (em gravação)':'')+'</option>'; }).join('')+'<option value="aula-agendamento">Aula de agendamento (Endolaser)</option>'; }); }
-$('salvar').onclick=function(){ chave=$('chave').value.trim(); try{ sessionStorage.setItem('ic_chave',chave); }catch(e){} carregar(); if($('equipe').classList.contains('on')) listar(); };
+$('salvar').onclick=function(){ chave=$('chave').value.trim(); try{ sessionStorage.setItem('ic_chave',chave); }catch(e){} carregar(); versao(); if($('equipe').classList.contains('on')) listar(); };
 carregar();
+// ---------- sistema (troca do arquivo de código no Drive; reversível)
+var ARQ_NOVO='1G8koTE-CNVzO7g7pz6g3uFbKgf2AGPty', ARQ_ANT='19tFhLdYNUiU3qI3iKRek8_Ep1HrJSWbG';
+function versao(){ if(!chave) return; adm({}).then(function(r){ $('s-atual').textContent=r.ok?('Versão em uso: '+r.versao):'Esta chave não é de administração.'; }); }
+function apontar(id,b){ if(!chave){ $('s-out').innerHTML='<p class="ajuda">Digite a chave de administração no topo e toque em Entrar.</p>'; return; }
+ var volta=ocupado(b,'Aplicando…'); adm({apontar_arquivo:id}).then(function(r){ volta();
+  $('s-out').innerHTML=r.ok?'<p class="okk">Pronto. Arquivo em uso: '+esc(r.arquivo)+'. A troca vale nos próximos minutos.</p>':'<p class="er">Não foi possível: '+esc(r.erro||'erro')+'</p>'; setTimeout(versao,4000); }); }
+$('s-aplicar').onclick=function(){ apontar(ARQ_NOVO,this); };
+$('s-voltar').onclick=function(){ apontar(ARQ_ANT,this); };
+$('s-resumo').onclick=function(){ var b=this, volta=ocupado(b,'Enviando…'); adm({resumo_equipe:true}).then(function(r){ volta();
+ $('s-out').innerHTML=r.ok?(r.enviado?'<p class="okk">Resumo enviado para o seu e-mail.</p>':'<p class="sub">Nada novo para resumir agora.</p>'):'<p class="er">Disponível depois de aplicar a 1.4.0.</p>'; }); };
+if(location.hash==='#sistema'){ var bs=document.querySelector('nav button[data-t=sistema]'); if(bs) bs.click(); }
+versao();
 // ---------- gerar
 $('g-btn').onclick=function(){ var b=this, v=ocupado(b,'Gerando…');
  adm({link_criar:true,material:$('g-mat').value,pessoa:$('g-pes').value.trim()||'*',dias:+$('g-dias').value||30}).then(function(r){ v(); var o=$('g-out');
