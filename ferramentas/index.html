@@ -91,8 +91,10 @@ td button{font:700 14px system-ui;border-radius:8px;padding:8px 12px;margin:2px 
  <section id="sistema">
   <h2>Versão do sistema</h2>
   <p class="sub">A versão 1.5.0 traz tudo da 1.4.0 e acrescenta: contagem de visitas e de etapas do chat por canal (sem nome, e-mail ou telefone), o teste da abertura, o placar da semana no seu e-mail toda segunda às 8h e a exportação dos cadastros para o HÓRUS. Da 1.4.0: a versão 1.4.0 organiza a cadência dos e-mails: e-mail de teste não sai mais, os avisos da equipe chegam em um único resumo às 8h, 12h e 17h, nenhum e-mail se repete em 24 horas, cada pessoa recebe no máximo 3 e-mails não pedidos por dia e convite a indicado só sai entre 8h e 20h. Código, reserva e confirmação continuam saindo na hora.</p>
-  <p id="s-atual" class="sub">Entre com a chave de administração no topo para ver a versão em uso.</p>
-  <button class="b" id="s-aplicar">Aplicar a versão 1.5.0</button>
+  <p class="sub"><b>A 1.5.0 já está em uso</b> (aplicada em 19/11/2026, confirmada pela importação do HÓRUS). Os botões "Aplicar" e "Voltar" só são necessários para trocar de versão no futuro.</p>
+  <p id="s-atual" class="sub">Entre com a chave de administração no topo para ver a versão em uso. Essa chave não fica nas Propriedades do script: ela é a linha ADMIN_CHAVE no início do arquivo de código no Drive (pasta "Instituto Couto · Landing Endolaser").</p>
+  <button class="b" id="s-conferir">Conferir tudo agora (links e servidor)</button>
+  <button class="b sec" id="s-aplicar">Aplicar a versão 1.5.0</button>
   <button class="b sec" id="s-voltar">Voltar para a 1.4.0</button>
   <button class="b sec" id="s-resumo">Enviar o resumo da equipe agora</button>
   <button class="b sec" id="s-placar">Ver o placar da semana</button>
@@ -123,6 +125,16 @@ function versao(){ if(!chave) return; adm({}).then(function(r){ $('s-atual').tex
 function apontar(id,b){ if(!chave){ $('s-out').innerHTML='<p class="ajuda">Digite a chave de administração no topo e toque em Entrar.</p>'; return; }
  var volta=ocupado(b,'Aplicando…'); adm({apontar_arquivo:id}).then(function(r){ volta();
   $('s-out').innerHTML=r.ok?'<p class="okk">Pronto. Arquivo em uso: '+esc(r.arquivo)+'. A troca vale nos próximos minutos.</p>':'<p class="er">Não foi possível: '+esc(r.erro||'erro')+'</p>'; setTimeout(versao,4000); }); }
+$('s-conferir').onclick=function(){ var b=this, volta=ocupado(b,'Conferindo…');
+ var P=[['Início','../'],['Chat Endolaser','../endolaser/'],['Máquina de distribuição','../distribuir/'],['Ferramentas','../ferramentas/'],['Convite','../convite/'],['Material (link mascarado)','../m/'],['WhatsApp','../whats/']];
+ ['ig','stories','reels','direct','tiktok','face','google','youtube','linkedin','zap','resposta','catalogo','email','assinatura','recepcao','cartao','impresso','parceiro','anuncio'].forEach(function(c){ P.push(['Canal '+c,'../endolaser/'+c+'/']); });
+ var jobs=P.map(function(p){ return fetch(p[1]+'?t='+Date.now(),{cache:'no-store'}).then(function(r){ return {n:p[0],ok:r.ok,s:r.status}; }).catch(function(){ return {n:p[0],ok:false,s:'sem resposta'}; }); });
+ jobs.push(api('horarios',{}).then(function(r){ return {n:'Servidor do chat (Apps Script)',ok:!!r&&r.erro!=='rede',s:r&&r.erro==='rede'?'sem resposta':'respondeu'}; }));
+ if(chave) jobs.push(adm({}).then(function(r){ return {n:'Chave de administração e versão',ok:!!r.ok,s:r.ok?('versão '+r.versao):'chave não aceita'}; }));
+ Promise.all(jobs).then(function(R){ volta(); var bons=R.filter(function(x){return x.ok;}).length, maus=R.filter(function(x){return !x.ok;});
+  $('s-out').innerHTML='<p class="'+(maus.length?'er':'okk')+'">'+bons+' de '+R.length+' no ar'+(maus.length?' · '+maus.length+' com problema':' · tudo em pleno funcionamento')+'</p>'+
+   '<table class="placar">'+R.map(function(x){ return '<tr><td>'+(x.ok?'✓':'✗')+'</td><td>'+esc(x.n)+'</td><td>'+esc(x.s)+'</td></tr>'; }).join('')+'</table>'+
+   '<p class="sub">Esta conferência testa se cada página abre a partir deste endereço ('+esc(location.host)+'). Se o endereço oficial institutocouto.com.br estiver com erro no servidor da HostGator, abra esta página pelo endereço do GitHub para usar os links.</p>'; }); };
 $('s-aplicar').onclick=function(){ apontar(ARQ_NOVO,this); };
 $('s-voltar').onclick=function(){ apontar(ARQ_ANT,this); };
 $('s-resumo').onclick=function(){ var b=this, volta=ocupado(b,'Enviando…'); adm({resumo_equipe:true}).then(function(r){ volta();
