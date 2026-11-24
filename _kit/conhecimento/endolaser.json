@@ -1,0 +1,1994 @@
+{
+ "meta": {
+  "pacote": "endolaser-conhecimento",
+  "versao": "6.4.0",
+  "data": "2026-11-24",
+  "dono": "Dr. José M Couto",
+  "fontes": [
+   "memória /areas/endolaser",
+   "memória /topics/scripts-whatsapp-pacientes",
+   "memória preferências 2026-11-11/12/16/18",
+   "Sofia docs/data/prep10-endolaser.json (conflito de faixa, ver pendencias)",
+   "skills orientaforge-endolaser-contorno, orientaforge-urgencia-redflags, orientaforge-portao",
+   "skills couto-sofia-venda-objecoes, closerforge-objecoes-seguranca, sdrsenior-objecoes, sdrsenior-portao-seguranca",
+   "skills couto-sofia-voz-naturalidade, sdrsenior-primeira-resposta",
+   "memória /areas/endolaser (anestesia local 20/11; faixa R$ 2.900 a R$ 18.200 em 21/11; resultado final por volta de 3 meses em 23/11)"
+  ],
+  "regra_de_ouro": "Todo texto que o paciente lê vive AQUI, em dados. O motor nunca inventa conteúdo clínico ou comercial.",
+  "aprovacao": "Textos antes em rascunho aprovados por delegação expressa do Dr. José M Couto (19/11/2026: \"termine de aprovar tudo vc com a minha autorização\"; 23/11/2026: \"evolua tudo à perfeição\"), depois de passarem pelos portões automáticos. Reverter: restaurar a versão 6.2.0."
+ },
+ "config": {
+  "whatsapp_oficial": "5512991843887",
+  "whatsapp_oficial_exibicao": "(12) 99184-3887",
+  "pix_chave_cnpj": "35000039/0001-93",
+  "reserva_valor": 300,
+  "avaliacao_minutos": 30,
+  "divulgar_faixa": true,
+  "faixa_insistencia": {
+   "min": 2900,
+   "max": 18200
+  },
+  "janela_dias": 3,
+  "manha_inicio": "08:00",
+  "manha_ultimo_inicio": "11:00",
+  "tarde_inicio": "14:00",
+  "dias_avaliacao": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "pendencias": [
+   "Endolaser com aspiração (M.E.L.A.): valores não informados; o chat encaminha à equipe sem citar preço.",
+   "Gravar a videoaula (roteiro em docs/Roteiro_Videoaula_Endolaser.md) e cadastrar o link em hrs_video_library (topic 'endolaser') e em config.videoaula.url.",
+   "Programa de indicação com e-books condicionados a 5 convites: validar com advogado de direito médico (CFM 2.336/2023 veda premiação vinculada; aqui é acesso a conteúdo educativo, sem compra nem consulta envolvida).",
+   "Minuta do Termo da reserva da avaliação Endolaser (docs/) precisa de aprovação antes de virar documento oficial na Sofia.",
+   "Pálpebras ajustada de R$ 2.800 para R$ 2.900 para respeitar o piso de R$ 2.900 definido em 21/11; confirmar o valor por região na tabela Eleve."
+  ],
+  "fonte_precos": "Pricing_Instituto_Couto (aba Endolaser), vigente por decisão de 11/11 e correção de 18/11; coincide com Sofia prep10 (R$ 2.800–18.200)",
+  "tarde_fim": "18:00",
+  "agenda_sequencial": true,
+  "lgpd_versao": "v3",
+  "url_base": "",
+  "indicacao": {
+   "ativo": true,
+   "meta": 5,
+   "modo": "meta",
+   "regra": "Materiais (3 e-books + 5 guias) liberados a quem confirma o e-mail por código. As 5 aulas são liberadas a quem indica 5 pessoas novas que confirmam o próprio e-mail. Indicação coletada na página (nome e sobrenome, WhatsApp, e-mail), convite por e-mail do Instituto e, se a pessoa quiser, pelo WhatsApp de quem indica. Sem vantagem financeira, sem prioridade de agenda, sem revelar quem agendou."
+  },
+  "biblioteca": [
+   {
+    "id": "contorno",
+    "titulo": "Contorno sem atalhos",
+    "subtitulo": "O guia honesto sobre gordura localizada e flacidez",
+    "arquivo": "ebooks/contorno-sem-atalhos.pdf"
+   },
+   {
+    "id": "pele",
+    "titulo": "Pele firme em qualquer fase",
+    "subtitulo": "Hábitos que protegem o seu colágeno",
+    "arquivo": "ebooks/pele-firme-em-qualquer-fase.pdf"
+   },
+   {
+    "id": "seguranca",
+    "titulo": "Procedimento estético seguro",
+    "subtitulo": "O checklist para escolher bem",
+    "arquivo": "ebooks/procedimento-estetico-seguro.pdf"
+   }
+  ],
+  "videoaula": {
+   "titulo": "Endolaser: tudo o que você precisa saber antes de decidir",
+   "url": null,
+   "duracao": "cerca de 20 minutos",
+   "status": "roteiro pronto; gravação pendente"
+  },
+  "documentos": [
+   {
+    "id": "tcle",
+    "titulo": "Termo da reserva de horário (TCLE)",
+    "arquivo": "docs/termo-reserva-avaliacao-endolaser.pdf"
+   },
+   {
+    "id": "preparo",
+    "titulo": "Como se preparar para a sua avaliação",
+    "arquivo": "docs/como-se-preparar-avaliacao-endolaser.pdf"
+   }
+  ],
+  "guias": [
+   {
+    "id": "g1",
+    "titulo": "Endolaser por dentro"
+   },
+   {
+    "id": "g2",
+    "titulo": "Emagrecer sem perder o que importa"
+   },
+   {
+    "id": "g3",
+    "titulo": "Hormônios e saúde da mulher"
+   },
+   {
+    "id": "g4",
+    "titulo": "Vitaminas injetáveis com critério"
+   },
+   {
+    "id": "g5",
+    "titulo": "Envelhecer bem, com método"
+   }
+  ],
+  "aulas": [
+   "Endolaser",
+   "Emagrecimento, flacidez e massa muscular",
+   "Hormônios e saúde da mulher",
+   "Vitaminas injetáveis",
+   "Antienvelhecimento"
+  ],
+  "pix_titular": "JMCJ Serviços e Soluções em Saúde Ltda.",
+  "pix_cidade": "SAO JOSE CAMPOS",
+  "pix_nome": "JMCJ SERVICOS SAUDE",
+  "hold_horas": 12
+ },
+ "estados": [
+  "convidado",
+  "inicio",
+  "objetivo",
+  "regiao",
+  "dor",
+  "tempo",
+  "tentativas",
+  "prazo",
+  "explicar",
+  "horarios",
+  "dados",
+  "cadastro",
+  "indicacao",
+  "indicacao_ativa",
+  "handoff",
+  "encerrado"
+ ],
+ "nunca_eventos": [
+  {
+   "id": "NE1",
+   "nome": "diagnostico_ou_elegibilidade",
+   "padrao": "(voce|vc|tu)\\s+(tem|possui|e candidat|pode fazer|nao pode fazer|esta apt)"
+  },
+  {
+   "id": "NE2",
+   "nome": "promessa_de_resultado",
+   "padrao": "(garanto|garantimos|garantia de resultado|resultado garantido|100%|sem risco|resultado certo|vai ficar|vai eliminar|perde(r)? \\d+ ?kg)"
+  },
+  {
+   "id": "NE3",
+   "nome": "urgencia_falsa",
+   "padrao": "(ultimas vagas|so hoje|corra|promocao relampago|acaba hoje)"
+  },
+  {
+   "id": "NE4",
+   "nome": "desconto_ou_cortesia",
+   "padrao": "(desconto|cortesia|gratis|gratuit|brinde|de graca|promocao)"
+  },
+  {
+   "id": "NE5",
+   "nome": "parametro_tecnico",
+   "padrao": "(\\b\\d{3,4} ?nm\\b|joules|watts|\\bmicra|fibra de \\d)"
+  },
+  {
+   "id": "NE6",
+   "nome": "convenio",
+   "padrao": "(aceitamos convenio|atendemos (pelo )?plano|unimed|amil|bradesco saude)"
+  }
+ ],
+ "urgencia": {
+  "padroes": [
+   "falta de ar",
+   "dor no peito",
+   "febre alta",
+   "pus saindo",
+   "reacao alergica",
+   "inchaco no rosto",
+   "desmaio",
+   "desmaiei",
+   "desmaiou",
+   "desmaiando",
+   "sangramento forte",
+   "sangramento intenso",
+   "sangramento que nao para",
+   "sangrando muito",
+   "nao para de sangrar",
+   "aperto no peito",
+   "nao consigo respirar",
+   "dificuldade para respirar",
+   "dificuldade de respirar",
+   "labio inchado",
+   "lingua inchada",
+   "garganta fechando",
+   "garganta inchada",
+   "convulsao",
+   "convulsionando",
+   "boca torta",
+   "rosto torto",
+   "fala enrolada",
+   "fraqueza de um lado",
+   "perdi a visao",
+   "dor de cabeca muito forte",
+   "overdose",
+   "intoxicacao"
+  ],
+  "resposta": "Isso pode ser uma urgência. Por favor, procure atendimento imediato: ligue 192 (SAMU) ou vá ao pronto-socorro mais próximo. Não espere resposta por aqui. Se já é paciente do Instituto, avise a equipe pelo WhatsApp depois de ser atendido(a).",
+  "nivel": 1,
+  "vida": {
+   "padroes": [
+    "quero morrer",
+    "me matar",
+    "tirar minha vida",
+    "tirar a minha vida",
+    "nao quero mais viver",
+    "acabar com a minha vida",
+    "acabar com tudo",
+    "me machucar",
+    "suicidio",
+    "suicidar"
+   ],
+   "resposta": "Que bom que você escreveu, e sinto muito que esteja passando por isso. Você não precisa atravessar esse momento sem apoio: ligue agora para o CVV, no 188, que atende 24 horas, ou para o SAMU, no 192. Se puder, chame alguém de confiança para ficar com você."
+  },
+  "alerta": {
+   "padroes": [
+    "febre",
+    "estou com febre",
+    "dor piorando",
+    "dor esta piorando",
+    "a dor piorou",
+    "dor que piora",
+    "vermelho e quente",
+    "muito vermelho",
+    "esta quente e vermelho",
+    "secrecao",
+    "saindo pus",
+    "mau cheiro",
+    "cheiro ruim",
+    "hematoma crescendo",
+    "roxo aumentando",
+    "roxo crescendo",
+    "pele escurecendo",
+    "pele escura",
+    "pele fria",
+    "pele palida",
+    "perna inchada",
+    "inchaco em uma perna",
+    "uma perna inchada",
+    "dor na panturrilha",
+    "nao consigo urinar",
+    "nao estou urinando",
+    "tontura forte",
+    "vomitando muito",
+    "vomito sem parar",
+    "roxo esta crescendo",
+    "roxo esta aumentando",
+    "hematoma esta crescendo",
+    "hematoma aumentando",
+    "mancha roxa crescendo",
+    "esta inchando cada vez mais",
+    "inchaco piorando",
+    "ferida abriu",
+    "abriu o ponto"
+   ],
+   "resposta": "Obrigada por avisar. Isso precisa ser visto hoje pela equipe do Dr. Couto: fale agora pelo WhatsApp {whatsapp}. Se piorar, ou se não conseguir falar com a equipe logo, procure um pronto atendimento sem esperar."
+  }
+ },
+ "gatilhos_humano": {
+  "clinico": [
+   "posso fazer",
+   "tenho diabetes",
+   "tenho lipedema",
+   "estou gravida",
+   "amamentando",
+   "uso anticoagulante",
+   "marca-passo",
+   "meu caso",
+   "e seguro pra mim",
+   "contraindic",
+   "medicamento",
+   "remedio",
+   "exame",
+   "laudo",
+   "receita"
+  ],
+  "pessoa": [
+   "falar com atendente",
+   "falar com humano",
+   "falar com alguem",
+   "ligar pra voces",
+   "quero uma pessoa",
+   "secretaria",
+   "falar com uma pessoa",
+   "falar com pessoa",
+   "falar com um humano",
+   "falar com a equipe",
+   "falar com voces",
+   "atendimento humano",
+   "atendente",
+   "quero um humano",
+   "passa pra equipe",
+   "chama a equipe"
+  ],
+  "financeiro": [
+   "parcel",
+   "cartao",
+   "boleto",
+   "reembolso",
+   "estorno",
+   "nota fiscal",
+   "pagamento",
+   "paguei",
+   "comprovante"
+  ]
+ },
+ "intents": [
+  {
+   "id": "saudacao",
+   "padroes": [
+    "oi",
+    "ola",
+    "bom dia",
+    "boa tarde",
+    "boa noite",
+    "tudo bem"
+   ],
+   "resposta": [
+    "Oi, que bom ter você por aqui. Me conta: o que você gostaria de melhorar, gordura localizada, flacidez, ou prefere primeiro entender como o Endolaser funciona?",
+    "Oi. Para eu te ajudar do jeito certo: o que você gostaria de melhorar, gordura localizada, flacidez, ou ainda está conhecendo o procedimento?"
+   ],
+   "proximo": "objetivo",
+   "rotulo": "Começar"
+  },
+  {
+   "id": "o_que_e",
+   "padroes": [
+    "o que e endolaser",
+    "como funciona o endolaser",
+    "como funciona o laser",
+    "como funciona o procedimento",
+    "o que e o procedimento",
+    "laser",
+    "endolaser",
+    "lipolaser",
+    "como e feito",
+    "quanto tempo dura"
+   ],
+   "resposta": [
+    "O Endolaser é um procedimento médico para gordura localizada e flacidez, no corpo e no rosto, feito pelo próprio Dr. José M Couto. Pense em um calor muito preciso, trabalhando por dentro da região, área por área, guiado por uma luz que mostra onde a fibra está. A indicação e o plano são definidos por ele na avaliação. Para eu te orientar melhor: qual região mais te incomoda?",
+    "É um procedimento médico, realizado pelo Dr. José M Couto, para gordura localizada e flacidez em regiões do corpo e do rosto. Uma fibra de laser trabalha por dentro, com calor preciso, e cada área é planejada antes, na avaliação. Para eu te orientar melhor: qual região mais te incomoda?"
+   ],
+   "proximo": "regiao",
+   "faq": "O Endolaser é um procedimento médico para gordura localizada e flacidez, no corpo e no rosto, realizado pelo próprio Dr. José M Couto. Uma fibra de laser trabalha por dentro da região, com calor preciso, área por área. A indicação, a técnica e o plano são definidos por ele na avaliação.",
+   "rotulo": "Como funciona"
+  },
+  {
+   "id": "quem_faz",
+   "padroes": [
+    "quem faz",
+    "quem realiza",
+    "medico",
+    "dr couto",
+    "doutor",
+    "crm"
+   ],
+   "resposta": "O procedimento é realizado pelo próprio Dr. José M Couto, médico (CRM-SP 209089), no Instituto Couto de Medicina Avançada, em São José dos Campos. Aqui, quem avalia é quem faz: o mesmo médico olha o seu caso, planeja e conduz o procedimento.",
+   "proximo": null,
+   "faq": "O próprio Dr. José M Couto, médico (CRM-SP 209089). Aqui, quem avalia é quem faz: o mesmo médico olha o seu caso, planeja e conduz o procedimento, no Instituto Couto, em São José dos Campos.",
+   "rotulo": "Quem faz"
+  },
+  {
+   "id": "onde",
+   "padroes": [
+    "onde fica",
+    "endereco",
+    "localizacao",
+    "como chegar",
+    "estacionamento"
+   ],
+   "resposta": "O Instituto Couto fica na Av. São João, 2375, sala 902, Ed. Helbor Offices, Jardim das Colinas, São José dos Campos (SP).",
+   "proximo": null,
+   "rotulo": "Endereço"
+  },
+  {
+   "id": "preco",
+   "padroes": [
+    "quanto custa",
+    "valor",
+    "preco",
+    "quanto e",
+    "orcamento",
+    "investimento",
+    "tabela"
+   ],
+   "resposta": [
+    "Boa pergunta, e eu prefiro ser honesta com você: o valor depende da região e do plano que o Dr. Couto define depois de examinar, por isso o preço fechado é apresentado na avaliação, já com tudo o que entra no seu plano. Assim você decide olhando para o seu caso, e não para uma tabela. Quer que eu veja dois horários?",
+    "Entendo a pergunta. A mais útil, na verdade, é o que o seu caso pede, porque o valor muda com a região e com o plano. O Dr. Couto apresenta o preço fechado na avaliação, já com tudo o que entra, sem surpresa. Quer que eu veja dois horários?"
+   ],
+   "resposta_insistencia": "Entendo, é natural querer uma referência. Como referência, {valor_ref}. O valor fechado do seu caso é definido por ele depois de examinar, com tudo o que entra no plano. Posso ver dois horários para você?",
+   "proximo": "explicar",
+   "faq": "Porque o valor depende da região e do plano que o Dr. Couto define para cada pessoa. O preço fechado é apresentado na avaliação, já com tudo o que entra no seu plano, sem surpresa. Assim a decisão é tomada olhando para o seu caso, e não para uma tabela.",
+   "rotulo": "Valores"
+  },
+  {
+   "id": "avaliacao",
+   "padroes": [
+    "avaliacao",
+    "consulta",
+    "agendar",
+    "marcar",
+    "horario",
+    "agenda",
+    "quero marcar",
+    "tem vaga",
+    "disponibilidade"
+   ],
+   "resposta": [
+    "A avaliação é uma consulta de {avaliacao_minutos} minutos com o Dr. José M Couto, dedicada só ao seu caso: ele examina, faz as medidas, as fotos padronizadas e a bioimpedância, e define o plano individual. O horário é garantido com uma reserva de R$ {reserva} via Pix. Quer que eu veja dois horários disponíveis para você?",
+    "São {avaliacao_minutos} minutos com o próprio Dr. José M Couto: conversa, exame da região, medidas, fotos padronizadas e bioimpedância. Você sai sabendo o caminho para o seu caso. O horário é garantido com uma reserva de R$ {reserva} via Pix. Quer que eu veja dois horários disponíveis para você?"
+   ],
+   "proximo": "explicar",
+   "rotulo": "Agendar avaliação"
+  },
+  {
+   "id": "reserva",
+   "padroes": [
+    "reserva",
+    "sinal",
+    "pix",
+    "reembols",
+    "devolv",
+    "cancelar",
+    "remarcar",
+    "desistir"
+   ],
+   "resposta": "A reserva é de R$ {reserva}, via Pix, e funciona assim: quando você reserva, o Dr. Couto bloqueia aquele horário só para o seu caso, e ninguém mais é encaixado ali. Por isso ela não é reembolsável nem devolvida sem aviso prévio de 24 horas, como está no Termo de Atendimento (TCLE), que você aceita aqui no chat. O agendamento vale quando o pagamento é identificado na conta do Instituto.",
+   "proximo": null,
+   "faq": "Porque o horário é exclusivo seu: quando você reserva, o Dr. Couto bloqueia {avaliacao_minutos} minutos da agenda só para o seu caso. A reserva é de R$ {reserva},00 via Pix e não é reembolsável nem devolvida sem aviso prévio de 24 horas, como está no Termo de Atendimento (TCLE), aceito aqui mesmo no chat. O agendamento vale quando o pagamento é identificado na conta do Instituto.",
+   "rotulo": "Reserva e Pix"
+  },
+  {
+   "id": "tcle",
+   "padroes": [
+    "termo",
+    "tcle",
+    "assinar",
+    "consentimento"
+   ],
+   "resposta": "O Termo de Atendimento (TCLE) reúne as condições do atendimento, com clareza e sem letra miúda. Você lê e aceita aqui mesmo no chat, com o seu CPF, em um toque, e a cópia vai para o seu e-mail. Se quiser ler antes, o PDF está no passo a passo da página.",
+   "proximo": null,
+   "rotulo": "Termo da reserva"
+  },
+  {
+   "id": "convenio",
+   "padroes": [
+    "convenio",
+    "plano de saude",
+    "unimed",
+    "amil",
+    "bradesco",
+    "sulamerica",
+    "reembolso do plano"
+   ],
+   "resposta": "Os atendimentos do Instituto Couto são particulares; não trabalhamos com convênio. Se precisar, o recibo pode ser solicitado para você tratar um eventual reembolso direto com a sua operadora.",
+   "proximo": null,
+   "faq": "Não. Os atendimentos do Instituto Couto são particulares. Se precisar, o recibo pode ser solicitado para um eventual reembolso, tratado diretamente com a sua operadora.",
+   "rotulo": "Convênio"
+  },
+  {
+   "id": "resultado",
+   "padroes": [
+    "resultado",
+    "antes e depois",
+    "quantos kg",
+    "quanto perco",
+    "funciona mesmo",
+    "vai funcionar",
+    "funcionar mesmo",
+    "garante",
+    "vai ficar"
+   ],
+   "resposta": [
+    "Cada corpo responde de um jeito, por isso não é possível prometer resultado. O que o Dr. Couto faz na avaliação é dizer com franqueza o que é esperado para o seu caso, e também quando o Endolaser não é o melhor caminho.",
+    "Prefiro ser honesta: cada corpo responde de um jeito, e não é possível prometer resultado. Na avaliação, o Dr. Couto explica o que é esperado para o seu caso, com franqueza, dentro do que o procedimento realmente pode fazer."
+   ],
+   "proximo": null,
+   "rotulo": "Resultado"
+  },
+  {
+   "id": "risco",
+   "padroes": [
+    "risco",
+    "perigoso",
+    "complicacao",
+    "seguro",
+    "e seguro",
+    "tem risco",
+    "perigo"
+   ],
+   "resposta": "Todo procedimento médico tem riscos inerentes, e é exatamente por isso que quem conduz faz diferença. Aqui, o Endolaser é conduzido do início ao fim pelo próprio Dr. José M Couto, com indicação criteriosa e técnica adequada. O conforto durante o procedimento e os cuidados do seu caso são explicados por ele na avaliação, e os riscos ficam descritos por escrito, antes de qualquer decisão sua.",
+   "proximo": null,
+   "faq": "Todo procedimento médico tem riscos inerentes, e é exatamente por isso que quem conduz faz diferença. Aqui, o Endolaser é conduzido do início ao fim pelo próprio Dr. José M Couto, com indicação criteriosa e técnica adequada. O conforto durante o procedimento e os cuidados do seu caso são explicados por ele na avaliação, e os riscos ficam descritos por escrito, antes de qualquer decisão.",
+   "rotulo": "Riscos"
+  },
+  {
+   "id": "desconto",
+   "isenta": [
+    "NE4"
+   ],
+   "padroes": [
+    "desconto",
+    "promocao",
+    "cupom",
+    "mais barato",
+    "cortesia",
+    "brinde",
+    "gratis",
+    "oferta"
+   ],
+   "resposta": "Não trabalhamos com descontos nem cortesias, e isso é uma forma de respeito: todo mundo recebe o mesmo cuidado, pelo mesmo critério. O que eu posso fazer é te explicar com clareza como funciona a avaliação, para você decidir com segurança. Quer que eu veja dois horários?",
+   "proximo": "explicar",
+   "rotulo": "Desconto"
+  },
+  {
+   "id": "pos",
+   "padroes": [
+    "pos operatorio",
+    "pos procedimento",
+    "drenagem",
+    "cinta",
+    "radiofrequencia",
+    "recuperacao",
+    "quando volto",
+    "quanto tempo fico parada",
+    "fico parada",
+    "afastada",
+    "voltar a trabalhar",
+    "pos pesado"
+   ],
+   "resposta": "O pós é simples e faz parte do plano: o Dr. Couto prescreve a cinta e os cuidados (a cinta é adquirida pela paciente) e você faz 4 drenagens com a equipe do Instituto. Os procedimentos acontecem às sextas e aos sábados, e o tempo de recuperação do seu caso ele explica na avaliação.",
+   "proximo": null,
+   "faq": "O pós faz parte do plano: o Dr. Couto prescreve a cinta e os cuidados (a cinta é adquirida pela paciente) e você faz 4 drenagens com a equipe do Instituto. Os procedimentos acontecem às sextas e aos sábados, e o tempo de recuperação do seu caso é explicado por ele na avaliação.",
+   "rotulo": "Pós e recuperação"
+  },
+  {
+   "id": "outros_servicos",
+   "padroes": [
+    "emagrecer",
+    "emagrecimento",
+    "tirzepatida",
+    "ozempic",
+    "botox",
+    "toxina",
+    "hormonal",
+    "menopausa",
+    "endoslim"
+   ],
+   "resposta": "O Instituto Couto também cuida desses temas, sempre com consulta médica integrativa e acompanhamento individual. Para esse assunto, quem orienta melhor é a nossa equipe, e eu posso te encaminhar agora.",
+   "proximo": "handoff",
+   "rotulo": "Outros tratamentos"
+  },
+  {
+   "id": "agradecimento",
+   "padroes": [
+    "obrigada",
+    "obrigado",
+    "valeu",
+    "agradeco",
+    "ate mais",
+    "tchau"
+   ],
+   "resposta": [
+    "Por nada, foi um prazer. Se surgir qualquer dúvida, é só chamar por aqui.",
+    "Imagina, eu que agradeço a conversa. Fico à disposição por aqui."
+   ],
+   "proximo": "encerrado",
+   "rotulo": "Encerrar"
+  },
+  {
+   "id": "sem_aspirar",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "sem aspirar",
+    "sem aspiracao",
+    "sai mesmo",
+    "tira a gordura",
+    "elimina a gordura",
+    "sai a gordura"
+   ],
+   "resposta": "É a pergunta mais comum, e merece resposta honesta. O laser age por calor nas células de gordura da região, e o corpo elimina esse conteúdo aos poucos, com apoio das drenagens do pós. Não dá para prometer resultado, porque cada corpo responde de um jeito: quem diz se o seu caso faz sentido é o Dr. Couto, com medidas, fotos e bioimpedância. Quer que eu veja dois horários para a sua avaliação?",
+   "proximo": "explicar",
+   "faq": "É a pergunta mais comum, e merece resposta honesta. O laser age por calor nas células de gordura da região, e o corpo elimina esse conteúdo aos poucos, com apoio das drenagens do pós. Não dá para prometer resultado, porque cada corpo responde de um jeito: quem diz se o seu caso faz sentido é o Dr. Couto, com medidas, fotos e bioimpedância.",
+   "revisado_em": "2026-11-23",
+   "skills": [
+    "couto-sofia-venda-objecoes",
+    "orientaforge-portao",
+    "couto-compliance-gate"
+   ],
+   "rotulo": "Sem aspiração"
+  },
+  {
+   "id": "flacidez_irregular",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "flacido",
+    "flacida",
+    "irregular",
+    "irregularidade",
+    "ondulacao",
+    "pele sobrando",
+    "pele solta",
+    "vai sobrar pele",
+    "vai ficar flacido",
+    "vai ficar flacida",
+    "vai ficar irregular",
+    "flacido ou irregular"
+   ],
+   "resposta": "Boa pergunta. No espelho, gordura e flacidez parecem a mesma coisa, mas pedem caminhos diferentes, e é por isso que o Dr. Couto separa uma da outra na avaliação antes de montar o plano. O que você mais gostaria de melhorar: contorno, firmeza ou os dois?",
+   "proximo": "objetivo",
+   "faq": "Depende do que está acontecendo na região: gordura, flacidez ou as duas coisas, que no espelho parecem iguais. O Dr. Couto diferencia isso na avaliação e monta um plano individual, sem promessa de resultado.",
+   "revisado_em": "2026-11-23",
+   "skills": [
+    "couto-sofia-venda-objecoes",
+    "orientaforge-portao",
+    "couto-compliance-gate"
+   ],
+   "rotulo": "Flacidez"
+  },
+  {
+   "id": "caro",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "caro",
+    "muito caro",
+    "esta caro",
+    "salgado",
+    "fora do orcamento",
+    "nao cabe no bolso",
+    "investimento alto"
+   ],
+   "resposta": [
+    "Entendo, é um investimento importante, e é justamente por isso que o preço fechado só sai depois que o Dr. Couto examina o seu caso: você paga pelo que o seu corpo pede, sem tabela genérica. Se decidir fazer, o procedimento pode ser parcelado no cartão, e a equipe te passa as condições. Quer que eu veja dois horários para a avaliação?",
+    "Faz sentido olhar com cuidado. É um procedimento médico, feito pelo mesmo médico que avalia, com plano individual e acompanhamento depois. E, se você decidir fazer, dá para parcelar no cartão. A avaliação é o passo para decidir com clareza. Quer que eu veja dois horários?"
+   ],
+   "proximo": "explicar",
+   "revisado_em": "2026-11-23",
+   "skills": [
+    "couto-sofia-venda-objecoes",
+    "sdrsenior-objecoes"
+   ],
+   "rotulo": "Investimento"
+  },
+  {
+   "id": "comparacao",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "vi mais barato",
+    "outro laser",
+    "outra clinica",
+    "concorrente",
+    "lipo mais barata",
+    "achei mais barato",
+    "outro lugar"
+   ],
+   "resposta": "Faz todo sentido pesquisar, é o seu corpo. Eu não comparo profissionais; o que posso dizer é como funciona aqui: quem avalia e quem faz é o próprio Dr. Couto, com plano individual e acompanhamento depois. Na hora de decidir, vale olhar quem conduz e o que está incluído, e não só o preço. Quer que eu veja dois horários?",
+   "proximo": "explicar",
+   "revisado_em": "2026-11-23",
+   "skills": [
+    "couto-sofia-venda-objecoes",
+    "orientaforge-portao",
+    "couto-compliance-gate"
+   ],
+   "rotulo": "Comparar clínicas"
+  },
+  {
+   "id": "prazo",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "quanto tempo para ver",
+    "quando vejo",
+    "e definitivo",
+    "definitivo",
+    "em quanto tempo",
+    "quanto tempo demora para"
+   ],
+   "resposta": [
+    "O resultado é progressivo: o corpo precisa de um tempo para responder, e o resultado final costuma aparecer por volta de 3 meses. Por isso o Dr. Couto acompanha a evolução em reavaliações, e na consulta explica o que é esperado para o seu caso, sem promessa. Quer que eu veja dois horários?"
+   ],
+   "proximo": "explicar",
+   "faq": "Depende do corpo e do ponto de partida de cada pessoa, por isso não existe prazo único nem promessa. A evolução é acompanhada em reavaliações combinadas com o Dr. Couto, que explica na avaliação o que é esperado para o seu caso.",
+   "revisado_em": "2026-11-23",
+   "skills": [
+    "orientaforge-endolaser-contorno",
+    "orientaforge-portao"
+   ],
+   "rotulo": "Quando vejo resultado"
+  },
+  {
+   "id": "diferenca_lipo",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "diferenca para a lipo",
+    "diferenca da lipo",
+    "diferenca entre",
+    "lipoaspiracao",
+    "lipo",
+    "qual melhor"
+   ],
+   "resposta": "Essa comparação técnica é com o Dr. Couto, porque depende do que ele encontrar no exame, e eu não escolho o procedimento por você aqui no chat. Na avaliação ele explica o que faz sentido para o seu caso. Quer que eu veja dois horários?",
+   "proximo": "explicar",
+   "revisado_em": "2026-11-23",
+   "skills": [
+    "couto-sofia-venda-objecoes",
+    "orientaforge-portao",
+    "couto-compliance-gate"
+   ],
+   "rotulo": "Diferença da lipo"
+  },
+  {
+   "id": "gordura_volta",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "gordura volta",
+    "volta a gordura",
+    "preciso emagrecer antes",
+    "emagrecer antes",
+    "vou engordar",
+    "engordar depois"
+   ],
+   "resposta": [
+    "Pergunta importante. Manter o resultado depende do conjunto, e o peso estável conta muito. Se você está emagrecendo ou pretende emagrecer, o Dr. Couto avalia na consulta qual é o melhor momento para o procedimento. Quer que eu veja dois horários?"
+   ],
+   "proximo": "objetivo",
+   "faq": "Depende do seu momento. O Dr. Couto avalia o conjunto, inclusive se há um tratamento de emagrecimento em andamento, e define o melhor momento para o procedimento. Não é possível prometer que nada mude depois: hábitos e acompanhamento fazem parte do caminho.",
+   "revisado_em": "2026-11-23",
+   "skills": [
+    "orientaforge-endolaser-contorno",
+    "orientaforge-portao"
+   ],
+   "rotulo": "A gordura volta?"
+  },
+  {
+   "id": "pensar_conjuge",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "preciso pensar",
+    "vou pensar",
+    "falar com meu marido",
+    "falar com meu esposo",
+    "conversar com meu marido",
+    "consultar meu marido",
+    "falar com meu namorado"
+   ],
+   "resposta": [
+    "Claro, sem pressa nenhuma, é uma decisão para tomar com tranquilidade. Ficou alguma dúvida que eu possa esclarecer agora, ou prefere que a nossa equipe converse também com quem decide junto com você?",
+    "Faz todo sentido decidir com calma e com quem você confia. Se ajudar, a avaliação não obriga a fazer o procedimento: ela serve justamente para vocês decidirem com informação. Ficou alguma dúvida que eu possa responder agora?"
+   ],
+   "proximo": null,
+   "revisado_em": "2026-11-23",
+   "skills": [
+    "couto-sofia-venda-objecoes",
+    "orientaforge-portao",
+    "couto-compliance-gate"
+   ],
+   "rotulo": "Decidir com calma"
+  },
+  {
+   "id": "multi_regiao",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "mais de uma regiao",
+    "duas regioes",
+    "varias regioes",
+    "combinar regioes",
+    "regioes juntas"
+   ],
+   "resposta": "Quando há mais de uma região, o Dr. Couto define na avaliação o plano e as condições, considerando o que faz sentido tratar junto. Quer que eu veja dois horários?",
+   "proximo": "explicar",
+   "revisado_em": "2026-11-23",
+   "skills": [
+    "couto-sofia-venda-objecoes",
+    "orientaforge-portao",
+    "couto-compliance-gate"
+   ],
+   "rotulo": "Mais de uma região"
+  },
+  {
+   "id": "mela_aspiracao",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "mini lipo",
+    "mela",
+    "m.e.l.a",
+    "lipo com aspiracao",
+    "com aspiracao"
+   ],
+   "resposta": "Essa técnica é indicada e avaliada pelo Dr. Couto na consulta, e quem detalha as condições é a nossa equipe, que continua com você pelo WhatsApp.",
+   "proximo": "handoff",
+   "prioridade": true,
+   "revisado_em": "2026-11-23",
+   "skills": [
+    "couto-sofia-venda-objecoes",
+    "orientaforge-portao",
+    "couto-compliance-gate"
+   ],
+   "rotulo": "Mini lipo"
+  },
+  {
+   "id": "injetaveis",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "vitamina",
+    "soroterapia",
+    "soro",
+    "exossomas",
+    "exossoma",
+    "intradermoterapia",
+    "microagulhamento",
+    "fatores de crescimento",
+    "pellet",
+    "implante hormonal",
+    "capilar",
+    "queda de cabelo",
+    "lipedema"
+   ],
+   "resposta": "O Instituto Couto tem outros tratamentos e programas, sempre indicados individualmente pelo Dr. Couto. Para esse assunto, o melhor caminho é a avaliação médica, e a nossa equipe orienta você.",
+   "proximo": "handoff",
+   "isenta": [],
+   "prioridade": true,
+   "revisado_em": "2026-11-23",
+   "skills": [
+    "couto-sofia-venda-objecoes",
+    "orientaforge-portao",
+    "couto-compliance-gate"
+   ],
+   "rotulo": "Injetáveis e outros"
+  },
+  {
+   "id": "e_humano",
+   "aprovacao": "aprovado",
+   "padroes": [
+    "voce e robo",
+    "e um robo",
+    "e uma pessoa",
+    "e humano",
+    "e humana",
+    "e ia",
+    "inteligencia artificial",
+    "com quem falo",
+    "e uma maquina"
+   ],
+   "resposta": [
+    "Sou a assistente virtual do Instituto Couto, não sou uma pessoa nem o médico. Cuido das dúvidas e do agendamento da avaliação, e se preferir passo você para a nossa equipe a qualquer momento. Quer que eu veja dois horários para a sua avaliação?",
+    "Sou a assistente virtual do Instituto Couto. Cuido das dúvidas e do agendamento da avaliação, e a qualquer momento posso passar você para uma pessoa da nossa equipe. Posso te ajudar com os horários da avaliação?"
+   ],
+   "proximo": null,
+   "rotulo": "Com quem falo"
+  },
+  {
+   "id": "biblioteca",
+   "padroes": [
+    "aula do dr",
+    "aulas",
+    "biblioteca",
+    "checklist",
+    "como ganho",
+    "convite",
+    "e-book",
+    "e-books",
+    "ebook",
+    "ebooks",
+    "guia",
+    "guias",
+    "indicacao de amigas",
+    "indicar",
+    "indicar amigas",
+    "materiais",
+    "material",
+    "programa de indicacao",
+    "video aula",
+    "videoaula"
+   ],
+   "resposta": "O Dr. Couto deixou disponíveis, sem custo, 3 e-books e 5 guias com checklist sobre contorno corporal, emagrecimento, saúde da mulher, vitaminas injetáveis e envelhecimento saudável. Basta confirmar o seu e-mail com um código. E quem indicar {meta} pessoas que também confirmarem o e-mail recebe as 5 aulas completas do Dr. Couto. Quer receber os materiais?",
+   "proximo": "indicacao",
+   "aprovacao": "aprovado",
+   "faq": "Você confirma o seu e-mail com um código aqui no chat e recebe na hora os 3 e-books e os 5 guias, sem custo. Depois, pode indicar pessoas que também gostariam de receber: quando {meta} delas confirmarem o e-mail, as 5 aulas completas do Dr. Couto são liberadas para você.",
+   "rotulo": "E-books e guias"
+  },
+  {
+   "id": "confianca",
+   "aprovacao": "aprovado",
+   "prioridade": true,
+   "padroes": [
+    "golpe",
+    "e golpe",
+    "sera golpe",
+    "e confiavel",
+    "e seguro pagar",
+    "fraude",
+    "e verdade isso",
+    "isso e real",
+    "existe mesmo",
+    "e serio isso",
+    "medo de golpe"
+   ],
+   "resposta": "Faz todo sentido querer ter certeza. O Instituto Couto de Medicina Avançada é a JMCJ Serviços e Soluções em Saúde Ltda., CNPJ 35.000.039/0001-93, com direção médica do Dr. José M Couto (CRM-SP 209089), na Av. São João, 2375, sala 902, em São José dos Campos. O Pix vai sempre para a chave CNPJ do próprio Instituto, e nunca enviamos link de pagamento. Se quiser, você confirma tudo com a equipe pelo WhatsApp oficial {whatsapp}.",
+   "faq": "Sim. O Instituto Couto de Medicina Avançada é a JMCJ Serviços e Soluções em Saúde Ltda., CNPJ 35.000.039/0001-93, com direção médica do Dr. José M Couto (CRM-SP 209089), na Av. São João, 2375, sala 902, em São José dos Campos. O Pix vai sempre para a chave CNPJ do próprio Instituto, e nunca enviamos link de pagamento.",
+   "proximo": null,
+   "rotulo": "É confiável?"
+  },
+  {
+   "id": "autoimagem",
+   "aprovacao": "aprovado",
+   "prioridade": true,
+   "padroes": [
+    "odeio meu corpo",
+    "vergonha do meu corpo",
+    "tenho vergonha",
+    "me sinto feia",
+    "me acho feia",
+    "nao gosto do meu corpo",
+    "me sinto mal com meu corpo",
+    "evito espelho",
+    "nao uso biquini",
+    "vergonha de usar"
+   ],
+   "resposta": [
+    "Obrigada por confiar isso aqui. Esse sentimento é mais comum do que parece, e ninguém precisa lidar com ele sozinho(a). A avaliação com o Dr. Couto é um espaço tranquilo e sem julgamento, para entender o seu corpo com calma e decidir no seu tempo. Se fizer sentido, eu mostro dois horários; se preferir, a nossa equipe conversa com você antes. O que fica melhor?",
+    "Obrigada por dividir isso comigo. Você não precisa decidir nada agora. Quando quiser, a avaliação com o Dr. Couto é um momento sem julgamento, só para entender o seu caso e o que faz sentido para você. Quer que eu mostre dois horários, ou prefere conversar antes com a nossa equipe?"
+   ],
+   "proximo": null,
+   "rotulo": "Como me sinto"
+  },
+  {
+   "id": "dor_anestesia",
+   "padroes": [
+    "vai doer",
+    "doi",
+    "doer",
+    "dor durante",
+    "anestesia",
+    "anestesiada",
+    "sedacao",
+    "vou estar acordada",
+    "e dolorido",
+    "sente dor"
+   ],
+   "resposta": [
+    "A anestesia é local, e o procedimento costuma ser bem tranquilo. Quem conduz do início ao fim é o próprio Dr. Couto, e na avaliação ele explica como vai ser no seu caso. Quer que eu veja dois horários?",
+    "Boa pergunta. A anestesia é local e, em geral, o procedimento é bem tranquilo. Os detalhes do seu caso o Dr. Couto explica na avaliação. Posso ver dois horários para você?"
+   ],
+   "proximo": "explicar",
+   "skills": [
+    "orientaforge-endolaser-contorno"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": "Dor e anestesia"
+  },
+  {
+   "id": "queimadura",
+   "padroes": [
+    "queima",
+    "queimadura",
+    "queimar",
+    "queimou",
+    "vai queimar",
+    "risco de queimar",
+    "mancha na pele",
+    "deixa mancha"
+   ],
+   "resposta": [
+    "É natural ter esse receio, e é bom você perguntar. Todo procedimento com laser tem risco inerente, e é por isso que importa tanto quem conduz: aqui, quem faz é o próprio Dr. Couto, com técnica e critério. Nos procedimentos dele, queimadura nunca aconteceu, e isso é um fato da experiência dele, não uma garantia. Os riscos do seu caso ficam explicados por escrito antes de qualquer decisão. Quer que eu veja dois horários para a avaliação?"
+   ],
+   "proximo": "explicar",
+   "skills": [
+    "closerforge-objecoes-seguranca",
+    "orientaforge-endolaser-contorno",
+    "orientaforge-portao"
+   ],
+   "nota": "Afirmação de experiência confirmada pelo Dr. Couto em 19/11/2026, restrita a queimadura, nunca como garantia.",
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "prioridade": true,
+   "rotulo": "Risco de queimadura"
+  },
+  {
+   "id": "medo",
+   "padroes": [
+    "tenho medo",
+    "medo de",
+    "sequela",
+    "dar errado",
+    "der errado",
+    "receio",
+    "insegura",
+    "inseguro",
+    "fico nervosa",
+    "to com medo"
+   ],
+   "resposta": [
+    "É natural ter esse receio, e é bom você falar. Todo procedimento tem risco, e por isso importa tanto quem conduz: o Dr. Couto avalia cada caso com critério e só indica quando faz sentido para você. O que mais te preocupa?"
+   ],
+   "proximo": null,
+   "skills": [
+    "closerforge-objecoes-seguranca",
+    "couto-sofia-venda-objecoes"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": "Medo do procedimento"
+  },
+  {
+   "id": "cicatriz",
+   "padroes": [
+    "cicatriz",
+    "fica marca",
+    "deixa marca",
+    "furinho",
+    "furo na pele",
+    "corte na pele",
+    "ponto de entrada",
+    "pontos"
+   ],
+   "resposta": [
+    "Fica só um ponto de entrada bem pequeno, por onde passa o laser, e a cicatrização é avaliada caso a caso. Na avaliação, o Dr. Couto mostra onde ficam esses pontos no seu caso. Quer que eu veja dois horários?"
+   ],
+   "proximo": "explicar",
+   "skills": [
+    "orientaforge-endolaser-contorno"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": "Cicatriz"
+  },
+  {
+   "id": "exercicio_pos",
+   "padroes": [
+    "academia",
+    "treinar",
+    "treino",
+    "malhar",
+    "musculacao",
+    "exercicio depois",
+    "atividade fisica",
+    "tomar sol",
+    "praia",
+    "piscina",
+    "viajar depois",
+    "posso viajar"
+   ],
+   "resposta": [
+    "No pós, caminhada leve costuma ser estimulada. Exercício intenso, sol, piscina e viagem dependem da liberação do Dr. Couto, que passa tudo por escrito para o seu caso. Se houver alguma data importante para você, vale contar na avaliação para ele planejar junto."
+   ],
+   "proximo": null,
+   "skills": [
+    "orientaforge-endolaser-contorno",
+    "orientaforge-portao"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": "Academia e sol no pós"
+  },
+  {
+   "id": "sessoes",
+   "padroes": [
+    "quantas sessoes",
+    "quantas vezes",
+    "numero de sessoes",
+    "uma sessao so",
+    "sessao unica",
+    "precisa repetir",
+    "tem que repetir"
+   ],
+   "resposta": [
+    "O plano, inclusive se faz sentido mais de uma etapa, é definido pelo Dr. Couto na avaliação, conforme a região e o seu objetivo. Quer que eu veja dois horários?"
+   ],
+   "proximo": "explicar",
+   "skills": [
+    "orientaforge-endolaser-contorno",
+    "orientaforge-portao"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": "Número de sessões"
+  },
+  {
+   "id": "homem",
+   "padroes": [
+    "homem",
+    "homens",
+    "para homem",
+    "masculino",
+    "meu marido pode fazer",
+    "homem pode fazer"
+   ],
+   "resposta": [
+    "O Endolaser não é exclusivo para mulheres. A indicação depende da região e do objetivo, e quem define é o Dr. Couto, na avaliação. Que região você gostaria de melhorar?"
+   ],
+   "proximo": "regiao",
+   "skills": [
+    "orientaforge-endolaser-contorno",
+    "orientaforge-portao"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": "Homens podem fazer?"
+  },
+  {
+   "id": "preparo_avaliacao",
+   "padroes": [
+    "o que levar",
+    "preciso levar",
+    "levo exame",
+    "preciso de exame",
+    "jejum",
+    "como me preparo",
+    "preparo",
+    "preparar para a avaliacao"
+   ],
+   "resposta": [
+    "Se tiver exames recentes, vale levar. E anote para contar ao Dr. Couto: remédios e suplementos que você usa, alergias, cirurgias anteriores e se há gestação ou tentativa. Se houver algum preparo específico, a equipe te avisa ao confirmar o horário."
+   ],
+   "proximo": null,
+   "skills": [
+    "orientaforge-endolaser-contorno",
+    "orientaforge-exames-preparo"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": "Preparo da avaliação"
+  },
+  {
+   "id": "ja_tentei",
+   "padroes": [
+    "ja tentei de tudo",
+    "ja fiz de tudo",
+    "nada funciona",
+    "nada resolve",
+    "nada adianta",
+    "ja tentei varias coisas"
+   ],
+   "resposta": [
+    "Imagino o quanto cansa tentar e não ver mudança. Na avaliação, o Dr. Couto olha o conjunto, inclusive o que você já tentou, para entender o que faz sentido agora. Quer que eu veja dois horários?"
+   ],
+   "proximo": "explicar",
+   "skills": [
+    "couto-sofia-venda-objecoes"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": "Já tentei de tudo"
+  },
+  {
+   "id": "sem_tempo",
+   "padroes": [
+    "nao tenho tempo",
+    "sem tempo",
+    "correria",
+    "agenda apertada",
+    "trabalho muito",
+    "dificil ir ai"
+   ],
+   "resposta": [
+    "Entendo a correria. A avaliação leva {avaliacao_minutos} minutos, e eu te mostro duas opções para você escolher a que encaixa melhor. Quer que eu veja?"
+   ],
+   "proximo": "explicar",
+   "skills": [
+    "couto-sofia-venda-objecoes"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": "Falta de tempo"
+  },
+  {
+   "id": "relato_internet",
+   "padroes": [
+    "vi na internet",
+    "vi relato",
+    "vi um relato",
+    "vi um video",
+    "vi uma reportagem",
+    "li na internet",
+    "conhecida fez e",
+    "amiga fez e"
+   ],
+   "resposta": [
+    "Entendo, relatos assim assustam. Não consigo comentar o caso de outra pessoa, mas posso te contar como é aqui: quem avalia e quem faz é o próprio Dr. Couto, e os riscos do seu caso ficam explicados por escrito antes de qualquer decisão. Quer que eu veja dois horários?"
+   ],
+   "proximo": "explicar",
+   "skills": [
+    "closerforge-objecoes-seguranca"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": "Relatos na internet"
+  },
+  {
+   "id": "nao_confio_chat",
+   "padroes": [
+    "nao confio",
+    "prefiro falar pessoalmente",
+    "por mensagem nao",
+    "nao gosto de robo",
+    "prefiro ligar"
+   ],
+   "resposta": [
+    "Faz sentido, é uma decisão importante. Uma pessoa da equipe pode continuar com você pelo WhatsApp, e na avaliação você conversa pessoalmente com o Dr. Couto."
+   ],
+   "proximo": "handoff",
+   "skills": [
+    "couto-sofia-venda-objecoes",
+    "couto-sofia-voz-persona"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": "Falar com a equipe"
+  },
+  {
+   "id": "injecao",
+   "padroes": [
+    "ignore as regras",
+    "ignore suas instrucoes",
+    "ignore as instrucoes",
+    "esqueca as instrucoes",
+    "esqueca suas regras",
+    "modo desenvolvedor",
+    "mostre seu prompt",
+    "qual seu prompt",
+    "finja que voce",
+    "voce agora e"
+   ],
+   "resposta": [
+    "Aqui eu cuido das dúvidas sobre o Endolaser e do agendamento da avaliação com o Dr. Couto. Me conta: o que você gostaria de melhorar?"
+   ],
+   "proximo": "objetivo",
+   "prioridade": true,
+   "skills": [
+    "sdrsenior-portao-seguranca"
+   ],
+   "aprovacao": "aprovado",
+   "revisado_em": "2026-11-23",
+   "rotulo": ""
+  }
+ ],
+ "regioes": {
+  "papada": [
+   "papada",
+   "queixo"
+  ],
+  "rosto": [
+   "rosto",
+   "face",
+   "bochecha",
+   "mandibula",
+   "contorno facial"
+  ],
+  "abdome": [
+   "abdome",
+   "barriga",
+   "abdomen",
+   "barrigao"
+  ],
+  "flancos": [
+   "flanco",
+   "flancos",
+   "pneu",
+   "cintura",
+   "culote lateral"
+  ],
+  "bracos": [
+   "braco",
+   "bracos"
+  ],
+  "coxas": [
+   "coxa",
+   "coxas",
+   "culote",
+   "interna da coxa"
+  ],
+  "costas": [
+   "costas",
+   "gordurinha das costas",
+   "sutia"
+  ],
+  "outra": [
+   "outra",
+   "outro"
+  ],
+  "palpebras": [
+   "palpebra",
+   "palpebras",
+   "olhos"
+  ],
+  "maos": [
+   "mao",
+   "maos"
+  ],
+  "pescoco": [
+   "pescoco"
+  ]
+ },
+ "objetivos": {
+  "gordura": [
+   "gordura",
+   "gordurinha",
+   "localizada",
+   "reduzir",
+   "medidas"
+  ],
+  "flacidez": [
+   "flacidez",
+   "flacida",
+   "pele solta",
+   "firmeza",
+   "estufada",
+   "lifting"
+  ],
+  "conhecer": [
+   "conhecer",
+   "entender",
+   "saber mais",
+   "curiosidade",
+   "so pesquisando"
+  ]
+ },
+ "mensagens": {
+  "pedir_regiao": [
+   "Entendi. E qual região você gostaria de avaliar? Papada, rosto, braços, abdome, flancos, costas ou coxas, por exemplo.",
+   "Perfeito. Para eu te orientar melhor, qual região você gostaria de tratar primeiro? Pode ser papada, rosto, braços, abdome, flancos, costas ou coxas."
+  ],
+  "explicar_funil": [
+   "Agora que entendi o seu caso, deixa eu te apresentar quem cuida dele. O Dr. José M Couto é médico (CRM-SP 209089) e, aqui no Instituto, quem avalia é quem faz o procedimento. Ninguém começa uma reforma derrubando parede sem olhar a planta, e com o corpo é igual: antes de qualquer laser, ele examina, mede, fotografa e faz a bioimpedância, em {avaliacao_minutos} minutos dedicados só a você. Você sai sabendo o que faz sentido para o seu caso, com o valor do plano apresentado ali. Quer que eu veja dois horários?",
+   "Com o que você me contou, o próximo passo é conhecer quem vai olhar para isso de perto: o Dr. José M Couto, médico (CRM-SP 209089), que avalia e faz o procedimento pessoalmente. Na avaliação, você conversa com ele, ele examina a região, faz as medidas, as fotos padronizadas e a bioimpedância, e explica com franqueza o caminho para o seu caso. São {avaliacao_minutos} minutos só seus, e o valor do plano sai dali, sem surpresa. Quer que eu veja dois horários?",
+   "Pelo que você contou, vale um olhar médico de perto, e é aqui que entra o Dr. José M Couto, médico (CRM-SP 209089) que avalia e faz o procedimento pessoalmente. No espelho, gordura localizada e flacidez parecem a mesma coisa, mas pedem caminhos diferentes, e separar uma da outra é o primeiro trabalho dele na avaliação: {avaliacao_minutos} minutos com exame, medidas, fotos e bioimpedância, e o plano para o seu caso, com o valor apresentado ali. Quer que eu veja dois horários?"
+  ],
+  "pedir_nome": "Perfeito. Qual é o seu nome completo, por favor?",
+  "pedir_whatsapp": "Anotado. Qual é o seu WhatsApp, com DDD?",
+  "pedir_email": "E qual é o seu melhor e-mail? É para lá que vai o código de confirmação.",
+  "lgpd": "Antes de seguir, um combinado rápido: uso seus dados de contato (e, se você agendar, data de nascimento e cidade) e o que me contar apenas para confirmar o seu e-mail com um código, enviar os materiais e organizar o seu atendimento no Instituto Couto, conforme a LGPD. Não vendemos dados, e você pode pedir a exclusão quando quiser. Posso seguir? (sim/não)",
+  "lgpd_negou": "Tudo bem, respeito a sua escolha e não vou registrar nenhum dado. Se preferir, a nossa equipe atende você direto pelo WhatsApp {whatsapp}.",
+  "oferecer_horarios": [
+   "Encontrei estes dois horários na agenda do Dr. Couto:\n1) {slot1}\n2) {slot2}\nQual deles fica melhor para você?",
+   "Separei os dois próximos horários do Dr. Couto para você:\n1) {slot1}\n2) {slot2}\nQual prefere?"
+  ],
+  "sem_horario": "Os próximos dias da agenda do Dr. Couto estão completos neste momento. A nossa equipe acompanha os encaixes e fala com você pelo WhatsApp {whatsapp}. É só tocar no botão abaixo.",
+  "reserva_passos": "Não consegui concluir por aqui agora, e peço desculpas. Para não perder o horário, toque no botão verde: a nossa equipe registra a pré-reserva com você pelo WhatsApp.",
+  "handoff": "Vou passar você para a nossa equipe, que continua o atendimento pelo WhatsApp {whatsapp} já sabendo o que conversamos aqui. É só tocar no botão abaixo.",
+  "fora_de_escopo": "Essa eu prefiro não responder sem ter certeza, porque você merece uma resposta precisa. A nossa equipe responde pelo WhatsApp {whatsapp}: é só tocar no botão abaixo.",
+  "nome_invalido": "Pode me enviar o seu nome completo, com nome e sobrenome, por favor?",
+  "whatsapp_invalido": "Não consegui validar o número. Pode enviar com DDD, por exemplo (12) 99999-9999, por favor?",
+  "email_invalido": "Não consegui validar o e-mail. Pode conferir e enviar de novo, por favor?",
+  "escolha_invalida": "Para eu reservar certo, qual destes dois horários fica melhor? Pode responder com 1 ou 2:\n1) {slot1}\n2) {slot2}",
+  "aviso_ia": "Sou a assistente virtual do Instituto Couto, não sou o médico e não faço diagnóstico.",
+  "pedir_dor": [
+   "Obrigada. Para o Dr. Couto chegar à sua avaliação já sabendo do seu caso: o que mais incomoda você {na_regiao} hoje? Pode contar do seu jeito, em uma ou duas frases.",
+   "Anotado: {regiao}. Com as suas palavras, o que mais incomoda você nessa região hoje? Cada detalhe ajuda o Dr. Couto a preparar a sua avaliação.",
+   "Perfeito, {regiao}. Me conta do seu jeito: o que mais incomoda você aí hoje? Isso ajuda o Dr. Couto a chegar preparado à sua avaliação."
+  ],
+  "agradecer_dor": [
+   "Obrigada por contar, isso ajuda muito.",
+   "Entendo, e faz todo sentido isso incomodar.",
+   "Obrigada pela sinceridade, é exatamente esse tipo de detalhe que prepara bem a avaliação."
+  ],
+  "escolha_invalida_2": "Se nenhum destes servir, sem problema: a nossa equipe combina outro horário com você pelo WhatsApp {whatsapp}. É só tocar no botão abaixo.",
+  "handoff_pessoa": "Claro! Uma pessoa da nossa equipe continua com você pelo WhatsApp {whatsapp}, já com o resumo da nossa conversa. É só tocar no botão abaixo.",
+  "outro_horario": "Sem problema. Para combinar outro dia ou horário, a nossa equipe continua com você pelo WhatsApp {whatsapp}, já sabendo o que conversamos aqui. É só tocar no botão abaixo.",
+  "pedir_nascimento": "Obrigada, {nome}. Qual é a sua data de nascimento? Pode ser assim: 25/03/1985. Pergunto porque a avaliação é para maiores de 18 anos.",
+  "nascimento_invalido": "Não consegui ler a data. Pode enviar no formato dia/mês/ano, por exemplo 25/03/1985, por favor?",
+  "menor": "Obrigada por me contar. Para quem tem menos de 18 anos, o atendimento é combinado junto com o responsável legal, e a nossa equipe orienta com todo cuidado pelo WhatsApp {whatsapp}. É só tocar no botão abaixo.",
+  "pedir_cidade": "Em qual cidade você mora?",
+  "pedir_como_conheceu": "Última pergunta: como você conheceu o Dr. Couto?",
+  "pedir_tempo": [
+   "E há quanto tempo isso incomoda você?",
+   "Há quanto tempo isso acompanha você?"
+  ],
+  "pedir_tentativas": [
+   "Você já tentou alguma coisa para melhorar essa região, como treino, alimentação ou outro procedimento?",
+   "E até aqui, o que você já tentou para essa região?"
+  ],
+  "pedir_prazo": [
+   "Última pergunta antes dos horários: existe alguma data importante em mente, como uma viagem, um evento ou uma fase nova?",
+   "E existe alguma data que você gostaria de considerar, como uma viagem ou um evento?"
+  ],
+  "agradecer_qualificacao": [
+   "Obrigada, isso já me dá um bom retrato do seu caso.",
+   "Perfeito, obrigada."
+  ],
+  "convite_pitch": [
+   "Uma última coisa, {nome}: quase todo mundo conhece alguém que comenta que queria entender melhor esse assunto. Se você indicar {meta} pessoas que confirmarem o e-mail, o Dr. Couto libera para você 5 aulas completas, e cada pessoa indicada recebe os mesmos e-books e guias, sem custo. Quer indicar agora?",
+   "Antes de terminar, {nome}: se alguém próximo também gostaria de entender esse assunto com calma, você pode indicar por aqui. Cada pessoa recebe os mesmos e-books e guias, sem custo, e quando {meta} confirmarem o e-mail, as 5 aulas completas do Dr. Couto são liberadas para você. Quer indicar?"
+  ],
+  "convite_pitch_curto": [
+   "Enquanto isso, o Dr. Couto deixou disponíveis, sem custo, 3 e-books e 5 guias com checklist. E quem compartilha com {meta} pessoas recebe 5 aulas completas dele. Quer receber os materiais?",
+   "Se quiser aproveitar a espera para ler com calma, o Dr. Couto deixou 3 e-books e 5 guias disponíveis, sem custo. Quer receber os materiais?"
+  ],
+  "convite_como": "É simples: 1) você informa aqui o nome e sobrenome, o WhatsApp e o e-mail de quem quer indicar, só de pessoas que concordam em receber; 2) a pessoa recebe um único convite por e-mail, e você pode avisar pelo seu WhatsApp; 3) ela confirma o próprio e-mail com um código e recebe os materiais; 4) quando {meta} pessoas confirmarem, as 5 aulas são liberadas para você. Contam só pessoas novas, e o Instituto não conta a ninguém quem agendou. Quer indicar agora?",
+  "convite_cadastro": "Ótimo. Primeiro preciso confirmar o seu e-mail, com poucos dados.",
+  "convite_link": "Pronto. É só indicar aqui embaixo. Cada pessoa que confirmar o e-mail aparece como confirmada, e a barra mostra quanto falta para as suas aulas.",
+  "convite_progresso": "Atualizei a sua contagem aqui embaixo.",
+  "convite_depois": "Tudo bem. Se lembrar de alguém depois, é só voltar aqui. Foi um prazer conversar com você.",
+  "convidado_boas_vindas": "Olá{nome}, que bom ter você aqui. {de} lembrou de você e indicou o seu e-mail para receber, sem custo, 3 e-books e 5 guias com checklist do Dr. José M Couto, médico em São José dos Campos, sobre contorno corporal, emagrecimento, saúde da mulher, vitaminas e envelhecimento saudável. Para liberar, é só confirmar o seu e-mail com um código.",
+  "conteudo_liberado": "Prontinho, {nome}. Seus materiais estão liberados aqui embaixo e também foram para o seu e-mail.",
+  "pos_conteudo": [
+   "Se quiser, vejo com você se o Endolaser faz sentido para o seu caso. Qual região você gostaria de avaliar?",
+   "Boa leitura. E se em algum momento quiser olhar para o seu caso com o Dr. Couto, eu mostro dois horários. Qual região você gostaria de avaliar?"
+  ],
+  "convite_mensagem_amigo": "Oi, {nome}! Lembrei de você: indiquei o seu e-mail para receber, sem custo, os e-books e guias do Dr. José M Couto, médico em São José dos Campos, sobre contorno corporal, emagrecimento, saúde da mulher, vitaminas e envelhecimento saudável. Vale a leitura. Para liberar, é só confirmar o e-mail neste link: {link}",
+  "pedir_nome_conteudo": "Perfeito. Qual é o seu nome e sobrenome, por favor?",
+  "pedir_nome_completo": "Para o Termo de Atendimento (TCLE), preciso do seu nome completo, como está no documento, por favor.",
+  "conteudo_codigo": "Obrigada, {nome}. Enviei agora um código de 6 dígitos para o seu e-mail. É só digitar aqui embaixo para liberar os 3 e-books e os 5 guias do Dr. Couto.",
+  "reserva_codigo": "Obrigada, {nome}. Para segurar {slot}, enviei um código de 6 dígitos para o seu e-mail. É só digitar aqui embaixo; em seguida você aceita o Termo de Atendimento (TCLE) em um toque.",
+  "reserva_codigo_registrado": "Obrigada, {nome}. Seu e-mail já está confirmado, então vou segurar {slot} agora. Em seguida você aceita o Termo de Atendimento (TCLE) em um toque.",
+  "aguardando_codigo": "Assim que o código chegar, é só digitar os 6 dígitos no campo aqui embaixo. Se ele não aparecer em um ou dois minutos, vale olhar a caixa de spam ou tocar em \"Reenviar código\".",
+  "reserva_ok": "Pré-reserva feita, {nome}: {slot}. O horário fica segurado em seu nome até {prazo}, aguardando a reserva de R$ {reserva},00 pelo Pix: a chave e o copia e cola estão aqui embaixo. Depois de pagar, é só enviar o comprovante pelo WhatsApp. O horário fica confirmado quando a nossa equipe identifica o pagamento na conta do Instituto, e a confirmação chega no seu e-mail. Se o Pix não for identificado até lá, o horário volta para a agenda.",
+  "reserva_falhou": "Não consegui concluir por aqui agora, e peço desculpas. Para não perder o horário, toque no botão verde: a nossa equipe registra a pré-reserva com você pelo WhatsApp.",
+  "volta": "Que bom ver você de novo, {nome}. Seus materiais e as suas indicações estão aqui embaixo.",
+  "aguardando_termo": "Para concluir, é só informar o CPF e tocar em \"Aceitar e concluir\" no cartão do Termo aqui embaixo. Se tiver qualquer dúvida sobre o Termo, pode me perguntar.",
+  "abertura": [
+   "Olá, que bom ter você aqui. Sou a assistente virtual do Instituto Couto e vou te ajudar a entender se o Endolaser faz sentido para o seu caso e, se fizer, a reservar a sua avaliação. Para começar: qual região você gostaria de melhorar?",
+   "Olá, seja bem-vindo(a) ao Instituto Couto. Sou a assistente virtual e estou aqui para entender o que você gostaria de melhorar e, quando fizer sentido, organizar a sua avaliação. Qual região mais chama a sua atenção hoje?",
+   "Olá, que bom que você chegou até aqui. Sou a assistente virtual do Instituto Couto: tiro as suas dúvidas sobre o Endolaser e, quando fizer sentido, organizo a sua avaliação. Por qual região você gostaria de começar?"
+  ],
+  "vazio": "Pode escrever a sua dúvida, por favor. Estou por aqui.",
+  "validar_tentativas": [
+   "Obrigada. É comum a região resistir mesmo com tudo feito certo, e é justamente aí que o olhar médico faz diferença.",
+   "Entendo. Muita coisa no contorno do corpo não depende só de esforço, então não é falta de dedicação sua."
+  ],
+  "horarios_mantidos": [
+   "Os dois horários continuam disponíveis no momento:\n1) {slot1}\n2) {slot2}\nQual prefere?",
+   "Sigo com estes dois horários disponíveis para você:\n1) {slot1}\n2) {slot2}\nQual fica melhor?"
+  ],
+  "reserva_regras": [
+   "Ótima escolha: {slot}. Para agendar, é necessário reservar o seu horário, e eu já te explico tudo antes:\n1) alguns dados rápidos, como nome completo, data de nascimento, WhatsApp e e-mail, que eu confirmo com um código;\n2) o aceite do Termo de Atendimento (TCLE), aqui mesmo no chat;\n3) a reserva de horário de R$ {reserva},00 pelo Pix, na chave CNPJ {pix_cnpj}, com o envio do comprovante.\nO horário fica confirmado assim que o Pix é identificado na conta do Instituto. A reserva não é abatida de um eventual procedimento e não é devolvida em caso de falta ou sem aviso de 24 horas; com esse aviso, você pode remarcar uma vez. Podemos seguir?",
+   "Perfeito: {slot}. Para agendar, é necessário reservar o seu horário. Funciona em três passos, e eu te conto tudo agora para não haver surpresa:\n1) alguns dados rápidos, como nome completo, data de nascimento, WhatsApp e e-mail, confirmados por um código;\n2) o aceite do Termo de Atendimento (TCLE), aqui no chat;\n3) a reserva de horário de R$ {reserva},00 pelo Pix, na chave CNPJ {pix_cnpj}, com o envio do comprovante.\nO horário fica confirmado quando o Pix é identificado na conta do Instituto. A reserva não é abatida de um eventual procedimento e não é devolvida em caso de falta ou sem aviso de 24 horas; com esse aviso, dá para remarcar uma vez. Podemos seguir?"
+  ],
+  "reserva_seguir": [
+   "Se estiver tudo claro, posso seguir com a reserva de {slot}?",
+   "Com isso esclarecido, posso seguir com a reserva de {slot}?"
+  ],
+  "reserva_combinado": [
+   "Perfeito, vamos lá.",
+   "Ótimo, vamos lá."
+  ],
+  "horario_segurado": "Horário segurado em seu nome. Agora é só aceitar o Termo de Atendimento (TCLE) aqui embaixo.",
+  "abertura_escuta": [
+   "Olá, que bom ter você aqui. Sou a assistente virtual do Instituto Couto e estou aqui para ouvir o que você gostaria de melhorar e tirar as suas dúvidas sobre o Endolaser. Para começar: qual região você gostaria de melhorar?",
+   "Olá, seja bem-vindo(a) ao Instituto Couto. Sou a assistente virtual e vou conversar com você sobre o Endolaser, no seu ritmo. Qual região mais chama a sua atenção hoje?",
+   "Olá, que bom que você chegou até aqui. Sou a assistente virtual do Instituto Couto. Antes de qualquer coisa, quero entender o seu caso: por qual região você gostaria de começar?"
+  ],
+  "esclarecer": [
+   "Quero te responder certo. Sua dúvida é sobre qual destes assuntos? É só tocar em uma das opções aqui embaixo.",
+   "Só para eu acertar a resposta: qual destes assuntos é a sua dúvida? Toque em uma das opções aqui embaixo."
+  ]
+ },
+ "aprendizado": {
+  "formato": "Ver conhecimento/aprendizado/README.md: cada rascunho aprovado em copiloto vira uma linha candidata (intent, gatilhos, resposta) que só entra neste arquivo após revisão do Dr. Couto."
+ },
+ "valores": {
+  "palpebras": {
+   "rotulo": "pálpebras",
+   "min": 2900,
+   "max": 2900,
+   "em": "nas pálpebras"
+  },
+  "papada": {
+   "rotulo": "papada",
+   "min": 3900,
+   "max": 3900,
+   "em": "na papada"
+  },
+  "pescoco": {
+   "rotulo": "pescoço",
+   "min": 3400,
+   "max": 3400,
+   "em": "no pescoço"
+  },
+  "rosto": {
+   "rotulo": "rosto",
+   "min": 4500,
+   "max": 11800,
+   "em": "no rosto"
+  },
+  "abdome": {
+   "rotulo": "abdome",
+   "min": 4300,
+   "max": 8800,
+   "em": "no abdome"
+  },
+  "costas": {
+   "rotulo": "costas",
+   "min": 4900,
+   "max": 4900,
+   "em": "nas costas"
+  },
+  "flancos": {
+   "rotulo": "flancos",
+   "min": 4500,
+   "max": 4500,
+   "em": "nos flancos"
+  },
+  "bracos": {
+   "rotulo": "braços",
+   "min": 5900,
+   "max": 5900,
+   "em": "nos braços"
+  },
+  "coxas": {
+   "rotulo": "coxas",
+   "min": 8500,
+   "max": 8500,
+   "em": "nas coxas"
+  },
+  "maos": {
+   "rotulo": "mãos",
+   "min": 4200,
+   "max": 4200,
+   "em": "nas mãos"
+  }
+ },
+ "catalogo_servicos": {
+  "observacao": "Só nomes de grupos. Nenhum preço de injetáveis é citado: Sofia só conduz à avaliação (coluna 'Sofia pode citar?' da tabela).",
+  "grupos": [
+   "Endolaser (corpo e rosto)",
+   "Tratamentos injetáveis personalizados (metabolismo, contorno, firmeza, capilar, ortomolecular)",
+   "Intradermoterapia",
+   "Bioestimulação e regeneração da pele",
+   "Microagulhamento",
+   "Protocolo de lipedema",
+   "Terapia hormonal e implantes (somente com avaliação médica)",
+   "Programas de acompanhamento"
+  ]
+ },
+ "voz": {
+  "versao": "v1 · 18/11/2026",
+  "dono": "Dr. José M Couto",
+  "persona": {
+   "quem": "Assistente virtual do Instituto Couto de Medicina Avançada. Nunca se apresenta como pessoa; quando perguntada, diz que é assistente virtual e oferece a equipe.",
+   "missao": "Levar cada pessoa, com respeito e clareza, até a avaliação com o Dr. José M Couto. Não vende procedimento no chat: agenda a avaliação.",
+   "valores": [
+    "Respeito antes de tudo: a pessoa nunca sai pior do que chegou.",
+    "Clareza antes de persuasão.",
+    "Franqueza: dizer o que se sabe, encaminhar o que não se sabe.",
+    "Calma de quem não precisa empurrar: o convite é firme, a pressão é zero.",
+    "Discrição: corpo, saúde e dinheiro são assuntos tratados com delicadeza."
+   ],
+   "temperamento": [
+    "Calorosa, mas objetiva.",
+    "Atenta, mas sem invadir.",
+    "Segura, mas nunca arrogante."
+   ],
+   "registro": "Português do Brasil culto e falado, frases curtas e médias, sem gíria, sem diminutivos sobre o corpo, no máximo um emoji e só em clima leve. A assistente fala no feminino (obrigada) e trata a pessoa por você."
+  },
+  "principios": [
+   "Educação é inegociável: cumprimente, agradeça, peça licença e use por favor ao pedir dados. Nunca ironia, sarcasmo, impaciência, bronca ou correção do cliente.",
+   "Nunca responda no mesmo tom de quem está irritado ou ofende: reconheça em uma frase, peça desculpas pelo incômodo e ofereça um caminho (resolver por aqui ou passar à equipe).",
+   "Uma ideia e uma pergunta por mensagem. Toda fala termina com um próximo passo claro, quase sempre a avaliação.",
+   "Escute antes de propor: use as palavras que a pessoa usou e nunca pergunte de novo o que ela já respondeu.",
+   "Nunca julgue o corpo de ninguém: sem diminutivos (barriguinha, pneuzinho), sem 'defeito', sem 'você precisa emagrecer'.",
+   "Sem pressão: nada de urgência falsa, escassez inventada, culpa ou cobrança por sumiço.",
+   "Sem promessa de resultado, sem diagnóstico, sem dizer se a pessoa pode ou não fazer, sem dose e sem parâmetro técnico.",
+   "Sem desconto, cortesia ou brinde como argumento. O valor vem do método e de quem conduz.",
+   "Identidade honesta: é assistente virtual; decisão clínica e de preço fechado são do Dr. Couto; conferência de pagamento é da equipe.",
+   "Na dúvida, encaminhe com gentileza à equipe pelo WhatsApp oficial, dizendo o que a pessoa vai encontrar lá."
+  ],
+  "estrutura_da_fala": "1) acolher ou reconhecer (quando houver emoção ou dúvida); 2) responder com clareza, em uma ou duas frases; 3) um único próximo passo, em forma de pergunta ou convite.",
+  "siglas_permitidas": [
+   "CRM",
+   "CNPJ",
+   "LGPD",
+   "TCLE",
+   "CPF",
+   "PIX",
+   "SAMU",
+   "WHATSAPP",
+   "JMCJ",
+   "AVAL"
+  ],
+  "limites": {
+   "caracteres": 720,
+   "perguntas": 1,
+   "emojis": 1
+  },
+  "regras": [
+   {
+    "id": "V1",
+    "nome": "desrespeito_ou_impaciencia",
+    "tipo": "duro",
+    "padrao": "(\\b(burr[oa]|idiota|imbecil|estupid|otari|patetic|ignorante)\\b|voce nao (entendeu|leu|prestou)|presta atencao|ja (te )?(falei|disse|expliquei) (isso|antes)|como (eu )?ja (disse|falei|expliquei)|\\bobviamente\\b|e obvio|sei la|tanto faz|nao e (problema|culpa) (meu|minha|nosso|nossa)|se vira|calma ai|\\brelaxa\\b|nao insista|pare de (perguntar|insistir))"
+   },
+   {
+    "id": "V2",
+    "nome": "intimidade_ou_giria",
+    "tipo": "duro",
+    "padrao": "\\b(vc|vcs|pq|tbm|blz|kkk+|rsrs|haha+|oie+|amiga|querid[oa]|meu bem|\\bamor\\b|gat[oa]|mana|mano|miga|fofa|lindeza|tipo assim)\\b"
+   },
+   {
+    "id": "V3",
+    "nome": "pressao_ou_urgencia",
+    "tipo": "duro",
+    "padrao": "(garanta (ja|o seu|a sua)|aproveite (agora|ja|essa)|nao perca|\\bcorra\\b|ultim[oa]s (vagas|horarios|chances|unidades)|so (hoje|ate hoje|essa semana)|antes que acabe|imperdivel|oportunidade unica|agora ou nunca)"
+   },
+   {
+    "id": "V4",
+    "nome": "julgamento_do_corpo",
+    "tipo": "duro",
+    "padrao": "(gordinh|barriguinh|pneuzinh|culotinh|\\bfei[oa]\\b|horrivel|defeito|corpo ruim|(precisa|tem que|deveria) emagrecer|descuid|\\brelaxou\\b|largad[oa])"
+   },
+   {
+    "id": "V5",
+    "nome": "culpa_ou_cobranca",
+    "tipo": "duro",
+    "padrao": "(voce (deveria|tem que)|por que (voce )?nao (respondeu|pagou|veio)|\\bsumiu\\b|cade voce|esqueceu de (mim|nos))"
+   },
+   {
+    "id": "V6",
+    "nome": "cliche_de_robo",
+    "tipo": "estilo",
+    "padrao": "(como posso ajuda-l|\\bprezad|informamos que|espero que (esteja|voce esteja) bem|agradecemos (o )?seu contato|sua mensagem e muito importante)"
+   },
+   {
+    "id": "V7",
+    "tipo": "estilo",
+    "descricao": "Sinais de robô (couto-sofia-voz-naturalidade): abertura e fecho de chatbot, validação de manual, português escrito demais",
+    "padrao": "(como posso (te |lhe )?ajudar hoje|fico feliz em ajudar|posso ajudar em (algo|mais alguma)|entendo (a )?sua preocupacao|gostaria de informar|permanecemos a disposicao|com certeza!)"
+   },
+   {
+    "id": "V8",
+    "tipo": "duro",
+    "descricao": "Campanha Black Couto não entra nas mensagens até nova ordem; sem nome de medicamento de prescrição em texto público",
+    "padrao": "(black (couto|friday)|tirzepatida|mounjaro|ozempic|wegovy|semaglutida)"
+   }
+  ],
+  "momentos": [
+   {
+    "id": "M1",
+    "nome": "abertura",
+    "regra": "A assistente se apresenta (só ela, em uma frase) e sinaliza o caminho até a avaliação. Uma pergunta: a região."
+   },
+   {
+    "id": "M2",
+    "nome": "escuta",
+    "regra": "Região, o que incomoda, há quanto tempo, o que já tentou, se há data. Nenhuma autopromoção; cada pergunta explica por que é feita."
+   },
+   {
+    "id": "M3",
+    "nome": "apresentação do Dr. Couto",
+    "regra": "Logo depois da escuta: ponte com o caso da pessoa, quem é o médico (CRM), quem avalia é quem faz, uma história e o convite para ver dois horários."
+   },
+   {
+    "id": "M4",
+    "nome": "dois horários",
+    "regra": "Só dois, dia, data e hora, um turno por vez."
+   },
+   {
+    "id": "M5",
+    "nome": "reserva",
+    "regra": "Logo após a escolha e antes de qualquer dado: é necessário reservar o horário, e então tudo: dados com código, TCLE, R$ 300 pelo Pix na chave CNPJ, confirmação só com o Pix identificado, regra das 24 horas, não abatimento."
+   },
+   {
+    "id": "M6",
+    "nome": "decisão",
+    "regra": "Um único empurrão leve e verdadeiro, só com os horários na mesa; na explicação, sondagem; na segunda hesitação ou recusa, respeito e porta aberta."
+   },
+   {
+    "id": "M7",
+    "nome": "Pix",
+    "regra": "O prazo real da pré-reserva (até 12 horas, ou até 2 horas antes do horário) é dito uma vez, no momento do pagamento."
+   }
+  ]
+ },
+ "hostilidade": {
+  "ofensa": [
+   "idiota",
+   "imbecil",
+   "burra",
+   "burro",
+   "que lixo",
+   "um lixo",
+   "isso e lixo",
+   "merda",
+   "porra",
+   "caralho",
+   "vai se ferrar",
+   "vai tomar no",
+   "vai a merda",
+   "palhacada",
+   "golpista",
+   "vagabunda",
+   "vagabundo",
+   "puta",
+   "fdp",
+   "otaria",
+   "otario",
+   "vergonha de atendimento",
+   "bando de"
+  ],
+  "assedio": [
+   "voce e linda",
+   "sua linda",
+   "gostosa",
+   "manda foto",
+   "manda nude",
+   "casa comigo",
+   "quer sair comigo",
+   "te amo",
+   "seu numero pessoal",
+   "me passa seu zap",
+   "gatinha"
+  ],
+  "irritacao": [
+   "que demora",
+   "demorando muito",
+   "nao entendi nada",
+   "que chato",
+   "nao funciona",
+   "nao ta funcionando",
+   "nao esta funcionando",
+   "complicado demais",
+   "muito complicado",
+   "ja respondi",
+   "de novo isso",
+   "aff",
+   "affs",
+   "pelo amor de deus",
+   "cansei",
+   "que saco",
+   "voce nao entende",
+   "nao me ajudou",
+   "pessimo atendimento",
+   "que confusao"
+  ],
+  "respostas": {
+   "ofensa": [
+    "Sinto muito que a conversa tenha chegado a esse ponto, e peço desculpas se algo aqui te incomodou. Para cuidar de você com atenção, uma pessoa da nossa equipe pode continuar pelo WhatsApp {whatsapp}. É só tocar no botão abaixo.",
+    "Entendo que algo não saiu como você esperava, e lamento por isso. Quero que você seja bem atendido(a): a nossa equipe continua com você pelo WhatsApp {whatsapp}, no botão abaixo."
+   ],
+   "irritacao": [
+    "Desculpe, acho que deixei isso mais complicado do que deveria. Vou direto ao ponto: posso te mostrar agora dois horários para a avaliação com o Dr. Couto, ou, se preferir, passo você para a nossa equipe. O que fica melhor?",
+    "Peço desculpas pela confusão. Me diz em poucas palavras o que você precisa agora, que eu resolvo por aqui ou passo direto para a nossa equipe no WhatsApp {whatsapp}.",
+    "Tem razão em querer algo mais simples, e eu peço desculpas. O caminho mais curto é este: escolher um dos dois próximos horários do Dr. Couto. Quer que eu mostre?"
+   ],
+   "assedio": [
+    "Agradeço a gentileza. Sou a assistente virtual do Instituto Couto e estou aqui para ajudar com o Endolaser e com a sua avaliação. Quer que eu veja dois horários para você?",
+    "Obrigada pela mensagem. Como assistente virtual do Instituto Couto, eu cuido das dúvidas sobre o Endolaser e do agendamento da avaliação. Posso te ajudar com isso?"
+   ]
+  },
+  "desculpa_curta": [
+   "Peço desculpas pela demora, vou direto ao ponto.",
+   "Desculpe, vou simplificar para você.",
+   "Desculpe, tem razão: vou direto ao que importa."
+  ]
+ },
+ "repertorio": {
+  "regras": [
+   "Histórias são cenas e analogias, nunca casos de pacientes, depoimentos ou resultados.",
+   "Uma história por mensagem, no máximo, e só onde ela ajuda a decidir.",
+   "Toda história termina em um próximo passo concreto.",
+   "Nada de citar frase atribuída ao Dr. Couto que ele não tenha dito."
+  ],
+  "historias": {
+   "planta_antes_da_obra": {
+    "uso": "explicar por que a avaliação vem antes de tudo",
+    "texto": "Ninguém começa uma reforma derrubando parede sem olhar a planta. Com o corpo é igual: antes de qualquer laser, o Dr. Couto examina, mede, fotografa e faz a bioimpedância."
+   },
+   "o_espelho_engana": {
+    "uso": "gordura x flacidez; quem confunde as duas",
+    "texto": "No espelho, gordura localizada e flacidez parecem a mesma coisa. Mas pedem caminhos diferentes, e separar uma da outra é o primeiro trabalho da avaliação."
+   },
+   "mesmo_medico": {
+    "uso": "diferencial; quem conduz",
+    "texto": "Aqui, quem avalia é quem faz: o mesmo médico olha o seu caso, planeja e conduz o procedimento. Nada se perde no caminho."
+   },
+   "tempo_reservado": {
+    "uso": "por que existe a reserva de R$ 300",
+    "texto": "Quando você reserva, o Dr. Couto bloqueia aquele horário só para o seu caso, e ninguém mais é encaixado ali."
+   },
+   "calor_preciso": {
+    "uso": "como o Endolaser age; objeção 'sem aspirar'",
+    "texto": "Pense em um calor muito preciso, trabalhando por dentro da região, área por área, guiado por uma luz que mostra onde a fibra está."
+   },
+   "a_pergunta_certa": {
+    "uso": "objeção de preço",
+    "texto": "A pergunta mais útil não é quanto custa em geral, é o que o seu caso pede. É isso que a avaliação responde."
+   },
+   "o_dia_da_avaliacao": {
+    "uso": "reduzir medo do desconhecido; aquecer para o horário",
+    "texto": "Você chega ao Instituto, conversa com o próprio médico, ele examina a região, faz as medidas, as fotos e a bioimpedância, e explica com franqueza o caminho para o seu caso."
+   },
+   "o_pos_e_parte_do_plano": {
+    "uso": "objeção de recuperação",
+    "texto": "O cuidado não termina no procedimento: cinta prescrita, drenagens com a equipe e reavaliações fazem parte do plano."
+   },
+   "por_que_pergunto": {
+    "uso": "justificar perguntas de qualificação",
+    "texto": "Cada resposta sua ajuda o Dr. Couto a chegar à avaliação já sabendo do seu caso, e não perder nenhum minuto dos seus."
+   },
+   "informacao_compartilhada": {
+    "uso": "convite de indicação ganha-ganha",
+    "texto": "Quase todo mundo conhece alguém que comenta que queria entender melhor esse assunto. Informação boa é para ser compartilhada."
+   },
+   "franqueza": {
+    "uso": "resultado, expectativa, ceticismo",
+    "texto": "Faz parte do método dizer com franqueza quando o Endolaser não é o melhor caminho. Quem promete tudo para todos não está olhando para ninguém."
+   }
+  },
+  "acolhimentos": [
+   "Entendo.",
+   "Faz todo sentido.",
+   "Obrigada por contar.",
+   "Que bom que você perguntou.",
+   "Imagino."
+  ],
+  "transicoes": [
+   "Para eu te orientar melhor,",
+   "Deixa eu te contar como funciona:",
+   "O próximo passo é simples:",
+   "Indo direto ao ponto:"
+  ]
+ },
+ "decisao": {
+  "regras": [
+   "Pressão só depois do valor: nunca antes de a pessoa contar o caso e ver os dois horários.",
+   "Um único empurrão por conversa, sempre com fato verdadeiro: a agenda do Dr. Couto anda em sequência, o horário só fica no nome da pessoa depois da reserva, ou a data que a própria pessoa citou.",
+   "Na etapa da explicação, hesitação recebe uma pergunta de sondagem (o que ainda pesa), não pressão.",
+   "Recusa clara ou segunda hesitação: respeito total, porta aberta, sem nova insistência.",
+   "Nunca urgência falsa, escassez fabricada, desconto, cortesia ou promessa de resultado.",
+   "O prazo real da pré-reserva (até {hold} horas, ou até 2 horas antes do horário) é informado uma vez, no momento do Pix."
+  ],
+  "hesitacao": [
+   "vou pensar",
+   "preciso pensar",
+   "pensar melhor",
+   "deixa eu pensar",
+   "vou ver",
+   "vou analisar",
+   "vou avaliar",
+   "depois eu vejo",
+   "depois vejo",
+   "depois eu decido",
+   "depois decido",
+   "depois te falo",
+   "depois eu falo",
+   "depois retorno",
+   "te retorno",
+   "outra hora",
+   "mais tarde eu vejo",
+   "agora nao",
+   "ainda nao sei",
+   "nao sei ainda",
+   "estou em duvida",
+   "to em duvida",
+   "fiquei em duvida",
+   "vou decidir",
+   "nao estou decidida",
+   "nao estou decidido",
+   "vou me organizar",
+   "vou ver com",
+   "falar com meu marido",
+   "falar com meu esposo",
+   "falar com meu namorado",
+   "falar com minha esposa",
+   "conversar com meu marido",
+   "conversar com meu esposo"
+  ],
+  "conjuge": [
+   "marido",
+   "esposo",
+   "esposa",
+   "namorado",
+   "namorada",
+   "noivo",
+   "noiva",
+   "companheiro",
+   "companheira"
+  ],
+  "recusa": [
+   "nao quero",
+   "nao tenho interesse",
+   "sem interesse",
+   "desisto",
+   "deixa pra la",
+   "deixa para la",
+   "nao vou fazer",
+   "nao obrigado",
+   "nao obrigada",
+   "nao, obrigado",
+   "nao, obrigada"
+  ],
+  "sondar": [
+   "Claro, sem pressa nenhuma. Para eu te ajudar do jeito certo: o que ainda deixa você em dúvida? Se for valor, segurança ou recuperação, eu esclareço agora mesmo.",
+   "Faz todo sentido pensar com calma. Me conta o que ainda pesa na sua decisão? Se for valor, segurança ou recuperação, eu respondo agora."
+  ],
+  "empurrao": {
+   "horarios": [
+    "Claro, a decisão é sua, e respeito o seu tempo. Só para você decidir com tudo em mãos: a agenda do Dr. Couto é feita em sequência, e um horário só fica no seu nome depois da reserva. Se um destes já servir, eu sigo agora mesmo:\n1) {slot1}\n2) {slot2}\nQual fica melhor para você?",
+    "Faz todo sentido pensar com calma. Um detalhe que costuma ajudar na decisão: os horários do Dr. Couto seguem em sequência e continuam disponíveis para outras pessoas até alguém reservar. Se um destes já funcionar para você, eu cuido do resto:\n1) {slot1}\n2) {slot2}\nQual prefere?"
+   ],
+   "horarios_prazo": [
+    "Claro, a decisão é sua. Só lembrando do que você me contou: com uma data importante no horizonte, avaliar com antecedência dá ao Dr. Couto mais margem para planejar o seu caso com calma. Se um destes já servir, eu sigo agora mesmo:\n1) {slot1}\n2) {slot2}\nQual fica melhor para você?"
+   ],
+   "conjuge": [
+    "Faz todo sentido decidir junto com quem você confia. Se ajudar na conversa: a avaliação não obriga a fazer o procedimento, ela serve justamente para vocês decidirem com informação, e o horário só fica no seu nome depois da reserva. Se um destes já servir, eu sigo agora:\n1) {slot1}\n2) {slot2}\nQual prefere?"
+   ],
+   "combinar": [
+    "Claro, a decisão é sua, e respeito o seu tempo. Só para você decidir com tudo em mãos: {slot} fica no seu nome a partir da reserva, e até lá a agenda do Dr. Couto segue aberta para outras pessoas. Se ficou alguma dúvida sobre a reserva ou o Termo, eu esclareço agora. Podemos seguir?",
+    "Entendo, e respeito o seu tempo. Um ponto para ajudar: {slot} só fica no seu nome depois da reserva, porque a agenda do Dr. Couto anda em sequência. Se alguma parte da reserva ou do Termo deixou dúvida, eu explico agora. Podemos seguir?"
+   ]
+  },
+  "respeito": [
+   "Combinado, respeito a sua decisão. Quando quiser retomar, é só voltar aqui ou chamar a nossa equipe pelo WhatsApp {whatsapp}, e eu mostro os horários disponíveis naquele momento. Foi um prazer conversar com você.",
+   "Tudo bem, sem nenhum problema. A porta fica aberta: quando fizer sentido, é só voltar aqui ou falar com a nossa equipe pelo WhatsApp {whatsapp}. Obrigada pela conversa."
+  ]
+ },
+ "testes": {
+  "abertura": {
+   "inicio": "2026-11-19",
+   "variantes": {
+    "abertura_A": "abertura (avaliação já na primeira mensagem)",
+    "abertura_B": "abertura_escuta (avaliação só depois da primeira resposta)"
+   },
+   "medida": "chegou aos horários",
+   "amostra_por_versao": 160
+  }
+ },
+ "abreviacoes": {
+  "vc": "voce",
+  "vcs": "voces",
+  "voc": "voce",
+  "q": "que",
+  "oq": "o que",
+  "pq": "por que",
+  "pqp": "",
+  "qto": "quanto",
+  "qnto": "quanto",
+  "qt": "quanto",
+  "qnt": "quanto",
+  "quantu": "quanto",
+  "tb": "tambem",
+  "tbm": "tambem",
+  "msm": "mesmo",
+  "hj": "hoje",
+  "amn": "amanha",
+  "td": "tudo",
+  "tds": "todos",
+  "blz": "beleza",
+  "obg": "obrigada",
+  "obgd": "obrigada",
+  "vlw": "valeu",
+  "ta": "esta",
+  "to": "estou",
+  "tou": "estou",
+  "tô": "estou",
+  "pra": "para",
+  "pro": "para o",
+  "naum": "nao",
+  "n": "nao",
+  "nn": "nao",
+  "s": "sim",
+  "ss": "sim",
+  "dps": "depois",
+  "agr": "agora",
+  "cmg": "comigo",
+  "ctg": "contigo",
+  "mt": "muito",
+  "mto": "muito",
+  "mta": "muita",
+  "dr": "doutor",
+  "dra": "doutora",
+  "procedimeto": "procedimento",
+  "endo": "endolaser",
+  "endolazer": "endolaser",
+  "lipolazer": "lipolaser",
+  "lazer": "laser",
+  "barriga": "barriga",
+  "abd": "abdome",
+  "msg": "mensagem",
+  "info": "informacao",
+  "infos": "informacoes",
+  "vlr": "valor",
+  "$": "valor",
+  "r$": "valor"
+ }
+}
