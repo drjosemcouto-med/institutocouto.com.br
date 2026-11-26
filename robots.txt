@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://endolaser.institutocouto.com.br/sitemap.xml
