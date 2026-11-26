@@ -4,6 +4,6 @@
  "type": "module",
  "scripts": {
   "test": "node --test bench/*.test.mjs",
-  "build": "API_BASE=https://script.google.com/macros/s/AKfycbwfFJ0vZVePmE1cARs5hNcp6YIkyXnchexB969grn5yZTjbW5vDS1GOltJLZu-LuiJalQ/exec SITE_BASE=https://drjosemcouto-med.github.io/institutocouto.com.br node scripts/build_landing.mjs --externo --producao && cp landing/index.html ../endolaser/index.html"
+  "build": "API_BASE=https://script.google.com/macros/s/AKfycbwfFJ0vZVePmE1cARs5hNcp6YIkyXnchexB969grn5yZTjbW5vDS1GOltJLZu-LuiJalQ/exec SITE_BASE=https://endolaser.institutocouto.com.br node scripts/build_landing.mjs --externo --producao && cp landing/index.html ../endolaser/index.html"
  }
 }
