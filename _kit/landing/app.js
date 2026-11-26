@@ -23,7 +23,8 @@
  const semDados=t=>String(t||'').replace(/[^\s@]+@[^\s@]+\.[^\s@]+/g,'(e-mail)').replace(/\d{3}\.?\d{3}\.?\d{3}-?\d{2}/g,'(cpf)').replace(/(\+?\d[\d ()\-.]{6,}\d)/g,'(número)').slice(0,280);
  function aprender(a,est){ if(!API||!a||!a.texto) return; try{ const b=JSON.stringify({acao:'pergunta',s:sid,modo:a.modo,texto:semDados(a.texto),intent:a.intent||'',estado:est||'',canal:origem.utm_source||'direto',variante});
    if(!(navigator.sendBeacon&&navigator.sendBeacon(API,new Blob([b],{type:'text/plain;charset=utf-8'})))) fetch(API,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body:b}).catch(()=>{}); }catch(e){} }
- const track=(tipo,meta)=>{ try{ (window.dataLayer=window.dataLayer||[]).push(Object.assign({event:'lp_'+tipo},origem,meta||{})); }catch(e){} beacon(tipo,meta); };
+ const PX={chat_aberto:['trackCustom','ChatAberto'],email_confirmado:['track','Lead'],pre_reserva:['track','Schedule'],termo_aceito:['track','CompleteRegistration'],pix_copiado:['track','InitiateCheckout',{value:300,currency:'BRL'}],whatsapp:['track','Contact'],indicacao:['trackCustom','Indicacao']};
+ const track=(tipo,meta)=>{ try{ (window.dataLayer=window.dataLayer||[]).push(Object.assign({event:'lp_'+tipo},origem,meta||{})); }catch(e){} try{ const x=PX[tipo]; if(x&&window.fbq) window.fbq(x[0],x[1],x[2]||{}); }catch(e){} beacon(tipo,meta); };
  const fill=(t,o)=>String(t||'').replace(/\{(\w+)\}/g,(m,k)=>o[k]!=null?o[k]:m);
  const prim=n=>String(n||'').trim().split(/\s+/)[0]||'';
 
