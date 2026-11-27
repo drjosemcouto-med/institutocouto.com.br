@@ -8,6 +8,7 @@ kb.config.somente_aprovados = true;
 const CASOS = [
   ["qto custa o procedimeto?", "preco"],
   ["vai doer muito?", "dor_anestesia"],
+  ["oi qual valor", "preco"],
 ];
 test("treino diário: o que foi aprendido continua respondendo", () => {
   for (const [frase, id] of CASOS) assert.equal(classificar(frase, kb).intent?.id, id, frase);
